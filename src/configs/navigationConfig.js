@@ -2,77 +2,25 @@ import React from "react"
 import * as Icon from "react-feather"
 const navigationConfig = [
   {
-    id: "dashboard",
-    title: "Dashboard",
-    // type: "collapse",
+    id: "users",
+    title: "Users",
+    type: "item",
     icon: <Icon.Home size={20} />,
-    badge: "warning",
-    // badgeText: "2",
     navLink: "/dashboard"
-    // children: [
-    //   {
-    //     id: "analyticsDash",
-    //     title: "Analytics",
-    //     type: "item",
-    //     icon: <Icon.Circle size={12} />,
-    //     permissions: ["admin", "editor"],
-    //     navLink: "/"
-    //   },
-    //   {
-    //     id: "eCommerceDash",
-    //     title: "eCommerce",
-    //     type: "item",
-    //     icon: <Icon.Circle size={12} />,
-    //     permissions: ["admin"],
-    //     navLink: "/ecommerce-dashboard"
-    //   }
-    // ]
   },
   {
     id: "blog",
-    title: "Blog",
-    type: "collapse",
+    title: "Deals",
+    type: "item",
     icon: <Icon.Image size={20} />,
-    children: [
-      {
-        id: "add-blog",
-        title: "Add Blog",
-        type: "item",
-        icon: <Icon.Circle size={12} />,
-        permissions: ["admin", "editor"],
-        navLink: "/admin/add-blog"
-      },
-      {
-        id: "all-blogs",
-        title: "All Blogs",
-        type: "item",
-        icon: <Icon.Circle size={12} />,
-        permissions: ["admin"],
-        navLink: "/admin/all-blogs"
-      }
-    ]
+    navLink: "/admin/deals"
   },
   {
     id: "dynamic-pages",
-    title: "Pages",
-    type: "collapse",
+    title: "Reports",
+    type: "item",
     icon: <Icon.List size={20} />,
-    children: [
-      {
-        id: "add-page",
-        title: "Add Page",
-        type: "item",
-        icon: <Icon.Circle size={12} />,
-        navLink: "/admin/add-page"
-      },
-      {
-        id: "all-pages",
-        title: "All Pages",
-        type: "item",
-        icon: <Icon.Circle size={12} />,
-        navLink: "/admin/all-pages"
-      }
-    ]
+    navLink: "/admin/reports"
   },
   // {
   //   type: "groupHeader",

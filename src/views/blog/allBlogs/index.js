@@ -1,8 +1,7 @@
 import React from "react"
 import {Row, Col} from "reactstrap"
 import prism from "prismjs"
-import TableBasic from "./AllBlogs"
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
+import Reports from "./Reports"
 import "prismjs/components/prism-jsx.min"
 
 class Tables extends React.Component {
@@ -15,14 +14,9 @@ class Tables extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumbs
-          breadCrumbTitle="Blog"
-          breadCrumbParent="Blog"
-          breadCrumbActive="Edit Blog"
-        />
         <Row>
           <Col sm="12">
-            <TableBasic/>
+            <Reports/>
           </Col>
         </Row>
       </React.Fragment>

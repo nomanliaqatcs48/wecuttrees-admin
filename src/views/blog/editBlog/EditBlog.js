@@ -160,7 +160,7 @@ const EditBlogForm = () => {
                 </Col>
                 <Col md="10">
                   <FormGroup>
-                    <img src={blogDetailData?.data?.image} height={100} />
+                    <img src={blogDetailData?.data?.image} height={100} alt="img" />
                   </FormGroup>
                 </Col>
               </FormGroup>

@@ -77,31 +77,18 @@ const LoginJWT = () => {
                   label="Remember me"
                   defaultChecked={false}
                 />
-                <div className="float-right">
-                  <Link to="/pages/forgot-password">Forgot Password?</Link>
-                </div>
               </FormGroup>
-              <div className="d-flex justify-content-between">
-                <Button.Ripple
-                  color="primary"
-                  outline
-                  onClick={() => {
-                    history.push("/register")
-                  }}
-                  disabled={loginLoading}
-                >
-                  Register
-                </Button.Ripple>
-                <Button.Ripple color="primary" type="submit" disabled={loginLoading}>
+              <div>
+                <Button color="primary" type="submit"  className="w-100" disabled={loginLoading}>
                   {loginLoading ? (
                     <>
-                      <Spinner color="white" size="sm"/>
+                      <Spinner color="white" size="LG"/>
                       <span className="ml-50">Login</span>
                     </>
                   ) : (
                     <span className="ml-50">Login</span>
                   )}
-                </Button.Ripple>
+                </Button>
               </div>
             </Form>
           )}
