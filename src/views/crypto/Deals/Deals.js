@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  Table,
-  Button,
-} from "reactstrap";
+import { Card, CardHeader, CardTitle, Table, Button, Badge } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
+import { Link } from "react-router-dom";
+import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
+import { Edit, Trash } from "react-feather";
 class Deals extends React.Component {
   constructor(props) {
     super(props);
@@ -16,18 +13,23 @@ class Deals extends React.Component {
   }
   showDeleteAlert = () => {
     this.setState({ deleteAlert: true });
-  }
-  
+  };
+
   // To hide the delete alert
   hideDeleteAlert = () => {
     this.setState({ deleteAlert: false });
-  }
+  };
   render() {
     return (
       <>
         <Card>
           <CardHeader>
             <CardTitle>Deals</CardTitle>
+            <Link to="/deals-create">
+              <Button.Ripple className="" color="success">
+                Add
+              </Button.Ripple>
+            </Link>
           </CardHeader>
           <Table
             responsive
@@ -35,7 +37,7 @@ class Deals extends React.Component {
           >
             <thead>
               <tr>
-                <th>DEAL  NAME</th>
+                <th>DEAL NAME</th>
                 <th>CREATED BY</th>
                 <th>MAX PRICE</th>
                 <th>EXPIRATION DATE</th>
@@ -48,199 +50,126 @@ class Deals extends React.Component {
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Active</span>
+                  <Badge color="light-success">ACTIVE</Badge>
                 </td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <td>
+                    <Link to="/deal-edit">
+                      <Edit size={20} />
+                    </Link>
+                    <Trash
+                      size={20}
+                      color="#ff0000"
+                      onClick={this.showDeleteAlert}
+                    />
                 </td>
               </tr>
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>InActive</span>
+                  <Badge color="light-danger">INACTIVE</Badge>
                 </td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/deal-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Active</span>
+                  <Badge color="light-success">ACTIVE</Badge>
                 </td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/deal-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>InActive</span>
+                  <Badge color="light-danger">INACTIVE</Badge>
                 </td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/deal-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Active</span>
+                  <Badge color="light-success">ACTIVE</Badge>
                 </td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/deal-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
                 <td>XYZ Deal</td>
                 <td>Sana Zafar</td>
-                <td>12000  USD</td>
+                <td>12000 USD</td>
                 <td>05-09-2023</td>
                 <td>Bitcoin</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>InActive</span>
+                  <Badge color="light-danger">INACTIVE</Badge>
                 </td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/deal-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
-              
-            
             </tbody>
           </Table>
+          <PaginationIconsAndText />
         </Card>
         <SweetAlert
           title="Are you sure?"

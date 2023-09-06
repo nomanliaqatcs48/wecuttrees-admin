@@ -9,10 +9,16 @@ import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions"
 import { ContextLayout } from "./utility/context/Layout"
 import Deals from "./views/crypto/Deals"
 import Reports from "./views/crypto/Reports"
+import UserCreate from "./views/dashboard/users/UserCreate"
+import UserEdit from "./views/dashboard/users/UserEdit"
+import DealCreate from "./views/crypto/Deals/DealCreate"
+import DealEdit from "./views/crypto/Deals/DealEdit"
+import ReportCreate from "./views/crypto/Reports/ReportCreate"
+import ReportEdit from "./views/crypto/Reports/ReportEdit"
 
 // Route-based code splitting
 const analyticsDashboard = lazy(() =>
-  import("./views/dashboard/analytics/AnalyticsDashboard")
+  import("./views/dashboard/users")
 )
 const ecommerceDashboard = lazy(() =>
   import("./views/dashboard/ecommerce/EcommerceDashboard")
@@ -227,8 +233,14 @@ class AppRouter extends React.Component {
           <AppRoute path="/register" component={register} fullLayout />
           <AppRoute path="/forgot-password" component={forgotPassword} fullLayout/>
           <AppRoute path="/dashboard" component={analyticsDashboard}/>
+          <AppRoute path="/user-create" component={UserCreate}/>
+          <AppRoute path="/user-edit" component={UserEdit}/>
           <AppRoute path="/admin/deals" component={Deals}/>
+          <AppRoute path="/deals-create" component={DealCreate}/>
+          <AppRoute path="/deal-edit" component={DealEdit}/>
           <AppRoute path="/admin/reports" component={Reports}/>
+          <AppRoute path="/report-create" component={ReportCreate}/>
+          <AppRoute path="/report-edit" component={ReportEdit}/>
           <AppRoute path="/admin/edit-blog/:id" component={editBlog}/>
           <AppRoute path="/admin/add-page" component={addPage}/>
           <AppRoute path="/admin/all-pages" component={allPage}/>
@@ -384,7 +396,7 @@ class AppRouter extends React.Component {
           />
           <AppRoute
             path="/misc/maintenance"
-            component={maintenance}
+            component={maintenance} 
             fullLayout
           />
           <AppRoute path="/app/user/list" component={userList} />

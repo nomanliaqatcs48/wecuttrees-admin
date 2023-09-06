@@ -4,17 +4,10 @@ import {
   PaginationItem,
   PaginationLink,
   Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
   TabContent,
   TabPane,
-  Nav,
-  NavItem,
-  NavLink
 } from "reactstrap"
-import classnames from "classnames"
-import { Eye, Code, ChevronsLeft, ChevronsRight } from "react-feather"
+import { ChevronsLeft, ChevronsRight } from "react-feather"
 import { paginationIconsAndText } from "./PaginationSourceCode"
 
 class PaginationIconsAndText extends React.Component {
@@ -32,39 +25,6 @@ class PaginationIconsAndText extends React.Component {
     return (
       <React.Fragment>
         <Card>
-          <CardHeader>
-            <CardTitle>With icon and text</CardTitle>
-            <div className="views">
-              <Nav tabs>
-                <NavItem>
-                  <NavLink
-                    className={classnames({
-                      active: this.state.activeTab === "1"
-                    })}
-                    onClick={() => {
-                      this.toggleTab("1")
-                    }}
-                  >
-                    <Eye size={15} />
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={classnames({
-                      active: this.state.activeTab === "2"
-                    })}
-                    onClick={() => {
-                      this.toggleTab("2")
-                    }}
-                  >
-                    <Code size={15} />
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </div>
-          </CardHeader>
-          <CardBody>
-            <p>Pagination with icon and text.</p>
             <TabContent activeTab={this.state.activeTab}>
               <TabPane tabId="1">
                 <Pagination className="d-flex justify-content-center mt-3">
@@ -99,7 +59,6 @@ class PaginationIconsAndText extends React.Component {
               </TabPane>
                <TabPane className="component-code" tabId="2">{paginationIconsAndText}</TabPane>
             </TabContent>
-          </CardBody>
         </Card>
       </React.Fragment>
     )

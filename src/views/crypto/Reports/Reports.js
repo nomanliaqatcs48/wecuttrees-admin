@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  Table,
-  Button,
-} from "reactstrap";
+import { Card, CardHeader, CardTitle, Table, Button, Badge } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
+import { Link } from "react-router-dom";
+import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
+import { Edit, Trash } from "react-feather";
 class Reports extends React.Component {
   constructor(props) {
     super(props);
@@ -28,10 +25,15 @@ class Reports extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle>Reports</CardTitle>
+            <Link to="/report-create">
+              <Button.Ripple className="" color="success">
+                Add
+              </Button.Ripple>
+            </Link>
           </CardHeader>
           <Table
             responsive
-            style={{width:'1700px'}}
+            style={{ width: "1600px" }}
             className="dashboard-table table-hover-animation mb-0 mt-1"
           >
             <thead>
@@ -58,34 +60,22 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Open</span>
+                 <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+               <td>
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
@@ -95,34 +85,22 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Close</span>
+                  <Badge color="light-danger">CLOSE</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+               <td>
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
@@ -132,34 +110,22 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Open</span>
+                 <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+               <td>
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
@@ -169,34 +135,22 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Close</span>
+                  <Badge color="light-danger">CLOSE</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+               <td>
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
@@ -206,34 +160,22 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Open</span>
+                 <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-                <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+               <td>
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
               <tr>
@@ -243,17 +185,7 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Close</span>
+                  <Badge color="light-danger">CLOSE</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
@@ -261,20 +193,19 @@ class Reports extends React.Component {
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
+                  <Link to="/report-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash
+                    size={20}
+                    color="#ff0000"
                     onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  />
                 </td>
               </tr>
             </tbody>
           </Table>
+          <PaginationIconsAndText />
         </Card>
         <SweetAlert
           title="Are you sure?"

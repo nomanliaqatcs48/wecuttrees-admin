@@ -6,9 +6,13 @@ import {
   Table,
   UncontrolledTooltip,
   Button,
+  Badge,
 } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
 import avatar3 from "../../../assets/img/portrait/small/avatar-s-10.jpg";
+import { Link } from "react-router-dom";
+import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
+import { Edit, Trash } from "react-feather";
 class DispatchedOrders extends React.Component {
   constructor(props) {
     super(props);
@@ -18,18 +22,23 @@ class DispatchedOrders extends React.Component {
   }
   showDeleteAlert = () => {
     this.setState({ deleteAlert: true });
-  }
-  
+  };
+
   // To hide the delete alert
   hideDeleteAlert = () => {
     this.setState({ deleteAlert: false });
-  }
+  };
   render() {
     return (
       <>
         <Card>
           <CardHeader>
             <CardTitle>Users</CardTitle>
+            <Link to="/user-create">
+              <Button.Ripple className="" color="success">
+                Add
+              </Button.Ripple>
+            </Link>
           </CardHeader>
           <Table
             responsive
@@ -70,30 +79,14 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Varified</span>
+                  <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
               </tr>
               <tr>
@@ -119,30 +112,14 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Unvarified</span>
+                <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
               </tr>
               <tr>
@@ -167,30 +144,14 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Varified</span>
+                 <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
               </tr>
               <tr>
@@ -216,32 +177,17 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Unvarified</span>
+                  <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
-              </tr><tr>
+              </tr>
+              <tr>
                 <td>#879985</td>
                 <td>
                   <ul className="list-unstyled users-list m-0 d-flex">
@@ -263,30 +209,14 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-success"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Varified</span>
+                 <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
               </tr>
               <tr>
@@ -312,34 +242,20 @@ class DispatchedOrders extends React.Component {
                 <td>sana.zafar@invozone.com</td>
                 <td>05-09-2023</td>
                 <td>
-                  <div
-                    className="bg-danger"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      borderRadius: "50%",
-                      display: "inline-block",
-                      marginRight: "5px",
-                    }}
-                  />
-                  <span>Unvarified</span>
+                  <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>Dealer</td>
                 <td>
-                  <Button.Ripple className="mr-1 mb-1" color="primary">
-                    Edit
-                  </Button.Ripple>
-                  <Button.Ripple
-                    className="mr-1 mb-1"
-                    color="danger"
-                    onClick={this.showDeleteAlert}
-                  >
-                    <span>Delete</span>
-                  </Button.Ripple>
+                  <Link to="/user-edit">
+                    <Edit size={20} />
+                  </Link>
+                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
                 </td>
               </tr>
             </tbody>
+           
           </Table>
+          <PaginationIconsAndText/>
         </Card>
         <SweetAlert
           title="Are you sure?"
