@@ -7,8 +7,8 @@ import Spinner from "./components/@vuexy/spinner/Loading-spinner"
 import knowledgeBaseCategory from "./views/pages/knowledge-base/Category"
 import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions"
 import { ContextLayout } from "./utility/context/Layout"
-import Deals from "./views/blog/addBlog/Deals"
-import Reports from "./views/blog/allBlogs/Reports"
+import Deals from "./views/crypto/Deals"
+import Reports from "./views/crypto/Reports"
 
 // Route-based code splitting
 const analyticsDashboard = lazy(() =>
@@ -172,9 +172,9 @@ const forgotPassword = lazy(() =>import("./views/pages/authentication/ForgotPass
 const lockScreen = lazy(() => import("./views/pages/authentication/LockScreen"))
 const resetPassword = lazy(() =>import("./views/pages/authentication/ResetPassword"))
 const register = lazy(() => import("./views/pages/authentication/register/Register"))
-const addBlog = lazy(() => import("./views/blog/addBlog"))
-const allBlogs = lazy(() => import("./views/blog/allBlogs"))
-const editBlog = lazy(() => import("./views/blog/editBlog"))
+// const addBlog = lazy(() => import("./views/blog/addBlog"))
+// const allBlogs = lazy(() => import("./views/blog/allBlogs"))
+const editBlog = lazy(() => import("./views/crypto/editBlog"))
 const addPage = lazy(() => import("./views/page/addPage"))
 const allPage = lazy(() => import("./views/page/allPages"))
 const editPage = lazy(() => import("./views/page/editPage"))

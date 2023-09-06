@@ -1,36 +1,36 @@
-import React, {useEffect, useState} from "react"
-import {Form, FormGroup, Input, Label, Button, Spinner, Alert} from "reactstrap"
+import React from "react"
+import {Form, FormGroup, Input, Label, Button, Spinner} from "reactstrap"
 import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy"
 import {Check} from "react-feather"
 // import { connect } from "react-redux"
 import {useDispatch, useSelector} from "react-redux"
-import {signupWithJWT, signupWithJWTReset} from "../../../../redux/actions/auth/registerActions"
+import {signupWithJWT} from "../../../../redux/actions/auth/registerActions"
 import {history} from "../../../../history"
 import {Formik} from "formik"
 import * as Yup from "yup"
 
 const RegisterJWT = () => {
   const dispatch = useDispatch();
-  const [isSuccess, setIsSuccess] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
 
   const {registrationLoading, registrationData} = useSelector(state => state.auth.register);
 
-  const handleRedirect = () => {
-    dispatch(signupWithJWTReset())
-      .then(() => {
-        history.push('/dashboard')
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
+  // const handleRedirect = () => {
+  //   dispatch(signupWithJWTReset())
+  //     .then(() => {
+  //       history.push('/dashboard')
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
 
-  useEffect(() => {
-    if (registrationData?.statusCode === 200) {
-      setIsSuccess(true)
-      setTimeout(() => handleRedirect(), 4000)
-    }
-  }, [registrationData]);
+  // useEffect(() => {
+  //   if (registrationData?.statusCode === 200) {
+  //     setIsSuccess(true)
+  //     setTimeout(() => handleRedirect(), 4000)
+  //   }
+  // }, []);
 
   return (
     <>
@@ -48,7 +48,7 @@ const RegisterJWT = () => {
           lastName: Yup.string().max(20, 'Must be 20 characters or less').required('This field is required.'),
           dob: Yup.date().required('This field is required.'),
           email: Yup.string().email('Invalid email address').required('This field is required.'),
-          password: Yup.string().min(8).required('This field is required.').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"),
+          // password: Yup.string().min(8).required('This field is required.').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"),
           confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('This field is required.')
         })}
         onSubmit={(values) => {
@@ -68,7 +68,7 @@ const RegisterJWT = () => {
                 type="text"
                 placeholder="First Name"
                 {...formik.getFieldProps('firstName')}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
               {formik.touched.firstName && formik.errors.firstName && (
                 <div className="text-danger font-small-2">{formik.errors.firstName}</div>)}
@@ -79,7 +79,7 @@ const RegisterJWT = () => {
                 type="text"
                 placeholder="Last Name"
                 {...formik.getFieldProps('lastName')}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
               {formik.touched.lastName && formik.errors.lastName && (
                 <div className="text-danger font-small-2">{formik.errors.lastName}</div>)}
@@ -90,7 +90,7 @@ const RegisterJWT = () => {
                 type="email"
                 placeholder="Email"
                 {...formik.getFieldProps('email')}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
               {formik.touched.email && formik.errors.email && (
                 <div className="text-danger font-small-2">{formik.errors.email}</div>)}
@@ -101,7 +101,7 @@ const RegisterJWT = () => {
                 type="password"
                 placeholder="Password"
                 {...formik.getFieldProps('password')}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
               {formik.touched.password && formik.errors.password && (
                 <div className="text-danger font-small-2">{formik.errors.password}</div>)}
@@ -112,7 +112,7 @@ const RegisterJWT = () => {
                 type="password"
                 placeholder="Confirm Password"
                 {...formik.getFieldProps('confirmPassword')}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
               {formik.touched.confirmPassword && formik.errors.confirmPassword && (
                 <div className="text-danger font-small-2">{formik.errors.confirmPassword}</div>)}
@@ -124,7 +124,7 @@ const RegisterJWT = () => {
                 icon={<Check className="vx-icon" size={16}/>}
                 label=" I accept the terms & conditions."
                 checked={true}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               />
             </FormGroup>
             <div className="d-flex justify-content-between">
@@ -134,11 +134,11 @@ const RegisterJWT = () => {
                 onClick={() => {
                   history.push("/login")
                 }}
-                disabled={registrationLoading || isSuccess}
+                disabled={registrationLoading || ''}
               >
                 Login
               </Button.Ripple>
-              <Button.Ripple color="primary" type="submit" disabled={registrationLoading || isSuccess}>
+              <Button.Ripple color="primary" type="submit" disabled={registrationLoading || ''}>
                 {registrationLoading ? (
                   <>
                     <Spinner color="white" size="sm"/>

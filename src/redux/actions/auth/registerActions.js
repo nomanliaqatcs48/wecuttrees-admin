@@ -1,5 +1,4 @@
 // import * as firebase from "firebase/app"
-import { history } from "../../../history"
 // import "firebase/auth"
 // import "firebase/database"
 import Axios from "axios"

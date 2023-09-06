@@ -18,9 +18,8 @@ class ProductCard extends React.Component {
             className="img-fluid rounded"
           />
           <h3 className="mt-1">
-            Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+            Admin
           </h3>
-          <small>Clean Bootstrap 4 Dashboard HTML Template</small>
           <p className="mt-1">
             <ExternalLink size={13} className="mr-50" />
             <a

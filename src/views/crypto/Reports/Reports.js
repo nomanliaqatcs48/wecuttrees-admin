@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Card,
   CardHeader,
@@ -7,7 +7,7 @@ import {
   Button,
 } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
-class Deals extends React.Component {
+class Reports extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,41 +16,47 @@ class Deals extends React.Component {
   }
   showDeleteAlert = () => {
     this.setState({ deleteAlert: true });
-  }
-  
+  };
+
   // To hide the delete alert
   hideDeleteAlert = () => {
     this.setState({ deleteAlert: false });
-  }
+  };
   render() {
     return (
       <>
         <Card>
           <CardHeader>
-            <CardTitle>Deals</CardTitle>
+            <CardTitle>Reports</CardTitle>
           </CardHeader>
           <Table
             responsive
+            style={{width:'1700px'}}
             className="dashboard-table table-hover-animation mb-0 mt-1"
           >
             <thead>
               <tr>
-                <th>DEAL  NAME</th>
-                <th>CREATED BY</th>
-                <th>MAX PRICE</th>
-                <th>EXPIRATION DATE</th>
-                <th>COIN</th>
+                <th>REPORT ID</th>
+                <th>REPORT TYPE</th>
+                <th>REPORTED BY</th>
+                <th>REPORTED DATE</th>
+                <th>DESCRIPTION</th>
                 <th>STATUS</th>
+                <th>USER</th>
+                <th>DEAL</th>
+                <th>ACTIVITY DATE</th>
+                <th>SUCCESS RATE</th>
+                <th>ADDITIONAL INFORMATION</th>
                 <th>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-success"
@@ -62,8 +68,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>Active</span>
+                  <span>Open</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -78,11 +89,11 @@ class Deals extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-danger"
@@ -94,8 +105,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>InActive</span>
+                  <span>Close</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -110,11 +126,11 @@ class Deals extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-success"
@@ -126,8 +142,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>Active</span>
+                  <span>Open</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -142,11 +163,11 @@ class Deals extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-danger"
@@ -158,8 +179,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>InActive</span>
+                  <span>Close</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -174,11 +200,11 @@ class Deals extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-success"
@@ -190,8 +216,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>Active</span>
+                  <span>Open</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -206,11 +237,11 @@ class Deals extends React.Component {
                 </td>
               </tr>
               <tr>
-                <td>XYZ Deal</td>
-                <td>Sana Zafar</td>
-                <td>12000  USD</td>
-                <td>05-09-2023</td>
-                <td>Bitcoin</td>
+                <td>#12345</td>
+                <td>Account Issue</td>
+                <td>Admin User</td>
+                <td>2023-09-10 14:30</td>
+                <td>User XYZ has account login issues.</td>
                 <td>
                   <div
                     className="bg-danger"
@@ -222,8 +253,13 @@ class Deals extends React.Component {
                       marginRight: "5px",
                     }}
                   />
-                  <span>InActive</span>
+                  <span>Close</span>
                 </td>
+                <td>User XYZ</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
                 <td>
                   <Button.Ripple className="mr-1 mb-1" color="primary">
                     Edit
@@ -237,8 +273,6 @@ class Deals extends React.Component {
                   </Button.Ripple>
                 </td>
               </tr>
-              
-            
             </tbody>
           </Table>
         </Card>
@@ -264,4 +298,4 @@ class Deals extends React.Component {
     );
   }
 }
-export default Deals;
+export default Reports;

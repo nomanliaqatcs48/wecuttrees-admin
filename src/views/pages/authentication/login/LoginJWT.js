@@ -1,5 +1,4 @@
 import React, {useEffect} from "react"
-import {Link} from "react-router-dom"
 import {CardBody, FormGroup, Form, Input, Button, Label, Spinner} from "reactstrap"
 import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy"
 import {Mail, Lock, Check} from "react-feather"

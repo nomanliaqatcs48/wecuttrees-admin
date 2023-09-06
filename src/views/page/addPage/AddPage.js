@@ -34,7 +34,7 @@ const AddPageForm = () => {
       window.scroll(0, 0);
       setTimeout(() => dispatch(addPageResetAction()), 5000);
     }
-  }, [addPageData]);
+  });
 
 
   return (

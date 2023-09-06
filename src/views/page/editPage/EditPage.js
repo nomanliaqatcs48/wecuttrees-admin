@@ -41,7 +41,6 @@ const EditPageForm = () => {
   const {
     pageDetailLoading,
     pageDetailData,
-    pageDetailError,
     updatePageLoading,
     updatePageData,
     updatePageError,
@@ -68,11 +67,11 @@ const EditPageForm = () => {
     if (updatePageError?.response) {
       window.scroll(0, 0);
     }
-  }, [updatePageData, updatePageError]);
+  }, [dispatch, updatePageData.statusCode, updatePageError.response]);
 
   useEffect(() => {
     dispatch(pageDetailAction({ id }));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Card>

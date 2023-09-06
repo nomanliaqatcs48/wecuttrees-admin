@@ -70,11 +70,11 @@ const EditBlogForm = () => {
     if (updateBlogError?.response) {
       window.scroll(0, 0);
     }
-  }, [updateBlogData, updateBlogError]);
+  }, [dispatch, id, updateBlogData, updateBlogError]);
 
   useEffect(() => {
     dispatch(blogDetailAction({ id }));
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Card>

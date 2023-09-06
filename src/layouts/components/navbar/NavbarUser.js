@@ -1,9 +1,6 @@
 import React from "react"
 import {
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
-  Dropdown,
   DropdownMenu,
   DropdownItem,
   DropdownToggle,
@@ -13,17 +10,9 @@ import {
 import PerfectScrollbar from "react-perfect-scrollbar"
 import axios from "axios"
 import * as Icon from "react-feather"
-import classnames from "classnames"
-import ReactCountryFlag from "react-country-flag"
-import Autocomplete from "../../../components/@vuexy/autoComplete/AutoCompleteComponent"
 import { useAuth0 } from "../../../authServices/auth0/auth0Service"
 import { history } from "../../../history"
-import { IntlContext } from "../../../utility/context/Internationalization"
 
-const handleNavigation = (e, path) => {
-  e.preventDefault()
-  history.push(path)
-}
 
 const UserDropdown = props => {
   const { logout, isAuthenticated } = useAuth0()
@@ -237,7 +226,7 @@ class NavbarUser extends React.PureComponent {
         </div>
       )
     })
-
+  console.log(renderCartItems)
     return (
       <ul className="nav navbar-nav navbar-nav-user float-right">
         {/* <IntlContext.Consumer>
@@ -308,7 +297,7 @@ class NavbarUser extends React.PureComponent {
           }}
         </IntlContext.Consumer> */}
 
-        <NavItem className="nav-search" onClick={this.handleNavbarSearch}>
+        {/* <NavItem className="nav-search" onClick={this.handleNavbarSearch}>
           <NavLink className="nav-link-search">
             <Icon.Search size={21} data-tour="search" />
           </NavLink>
@@ -433,7 +422,7 @@ class NavbarUser extends React.PureComponent {
               />
             </div>
           </div>
-        </NavItem>
+        </NavItem> */}
         {/* <UncontrolledDropdown
           tag="li"
           className="dropdown-notification nav-item"

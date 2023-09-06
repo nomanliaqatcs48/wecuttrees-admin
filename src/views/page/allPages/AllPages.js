@@ -20,7 +20,6 @@ import {
   pageDetailAction, pageDetailResetAction,
 } from "../../../redux/actions/page/pageActions";
 import SweetAlert from "react-bootstrap-sweetalert";
-import {Link} from "react-router-dom";
 
 const AllPages = () => {
   const dispatch = useDispatch();
@@ -32,13 +31,10 @@ const AllPages = () => {
   const {
     allPagesLoading,
     allPagesData,
-    allPagesError,
     deletePageLoading,
     deletePageData,
-    deletePageError,
     pageDetailLoading,
     pageDetailData,
-    pageDetailError,
   } = useSelector((state) => state.page.pageReducer);
 
   useEffect(() => {
@@ -48,11 +44,11 @@ const AllPages = () => {
       dispatch(allPagesAction({}));
       setTimeout(() => dispatch(deletePageResetAction()), 5000);
     }
-  }, [deletePageData]);
+  }, [deletePageData, dispatch]);
 
   useEffect(() => {
     dispatch(allPagesAction({}));
-  }, []);
+  }, [dispatch]);
 
   const showDeleteAlert = (item) => {
     setItemData(item);
