@@ -17,38 +17,38 @@ export const searchResult = [
     icon: "Home",
     starred: false
   },
-  {
-    id: 3,
-    target: "Todo",
-    title: "Todo",
-    link: "/todo/all",
-    icon: "CheckSquare",
-    starred: true
-  },
-  {
-    id: 4,
-    target: "Chat",
-    title: "Chat",
-    link: "/chat",
-    icon: "MessageSquare",
-    starred: true
-  },
-  {
-    id: 5,
-    target: "Email",
-    title: "Email",
-    link: "/email/inbox",
-    icon: "Mail",
-    starred: true
-  },
-  {
-    id: 6,
-    target: "Calender",
-    title: "Calender",
-    link: "/calendar",
-    icon: "Calendar",
-    starred: true
-  },
+  // {
+  //   id: 3,
+  //   target: "Todo",
+  //   title: "Todo",
+  //   link: "/todo/all",
+  //   icon: "CheckSquare",
+  //   starred: true
+  // },
+  // {
+  //   id: 4,
+  //   target: "Chat",
+  //   title: "Chat",
+  //   link: "/chat",
+  //   icon: "MessageSquare",
+  //   starred: true
+  // },
+  // {
+  //   id: 5,
+  //   target: "Email",
+  //   title: "Email",
+  //   link: "/email/inbox",
+  //   icon: "Mail",
+  //   starred: true
+  // },
+  // {
+  //   id: 6,
+  //   target: "Calender",
+  //   title: "Calender",
+  //   link: "/calendar",
+  //   icon: "Calendar",
+  //   starred: true
+  // },
   {
     id: 7,
     target: "E-commerceShop",

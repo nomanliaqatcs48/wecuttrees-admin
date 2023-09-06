@@ -7,6 +7,8 @@ import Spinner from "./components/@vuexy/spinner/Loading-spinner"
 import knowledgeBaseCategory from "./views/pages/knowledge-base/Category"
 import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions"
 import { ContextLayout } from "./utility/context/Layout"
+import Deals from "./views/blog/addBlog/Deals"
+import Reports from "./views/blog/allBlogs/Reports"
 
 // Route-based code splitting
 const analyticsDashboard = lazy(() =>
@@ -225,8 +227,8 @@ class AppRouter extends React.Component {
           <AppRoute path="/register" component={register} fullLayout />
           <AppRoute path="/forgot-password" component={forgotPassword} fullLayout/>
           <AppRoute path="/dashboard" component={analyticsDashboard}/>
-          <AppRoute path="/admin/add-blog" component={addBlog}/>
-          <AppRoute path="/admin/all-blogs" component={allBlogs}/>
+          <AppRoute path="/admin/deals" component={Deals}/>
+          <AppRoute path="/admin/reports" component={Reports}/>
           <AppRoute path="/admin/edit-blog/:id" component={editBlog}/>
           <AppRoute path="/admin/add-page" component={addPage}/>
           <AppRoute path="/admin/all-pages" component={allPage}/>

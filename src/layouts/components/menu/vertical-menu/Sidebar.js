@@ -191,7 +191,7 @@ class Sidebar extends Component {
                     direction={
                       dir === "rtl" ? "DIRECTION_RIGHT" : "DIRECTION_LEFT"
                     }>
-                    <ul className="navigation navigation-main">
+                    <ul className="navigation navigation-main  mt-1">
                       <SideMenuContent
                         setActiveIndex={this.changeActiveIndex}
                         activeIndex={activeIndex}

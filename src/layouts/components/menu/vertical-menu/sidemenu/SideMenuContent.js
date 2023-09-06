@@ -138,7 +138,7 @@ class SideMenuContent extends React.Component {
 
       let renderItem = (
         <li
-          className={classnames("nav-item", {
+          className={classnames("nav-item mb-75", {
             "has-sub": item.type === "collapse",
             open: this.state.activeGroups.includes(item.id),
             "sidebar-group-active": this.state.currentActiveGroup.includes(

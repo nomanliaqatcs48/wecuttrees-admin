@@ -1,20 +1,14 @@
 import React from "react"
 import {Row, Col} from "reactstrap"
-import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb"
-import AddBlogForm from "./AddBlog"
+import Deals from "./Deals"
 
 class AddBlog extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Breadcrumbs
-          breadCrumbTitle="Blog"
-          breadCrumbParent="Blog"
-          breadCrumbActive="Add Blog"
-        />
         <Row>
           <Col lg="12" md="12">
-            <AddBlogForm/>
+            <Deals/>
           </Col>
         </Row>
       </React.Fragment>
