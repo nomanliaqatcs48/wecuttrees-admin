@@ -9,3 +9,14 @@
 table tr {
     border-bottom: 1px solid #ccc;
 }
+.addBtn {
+    border: 1px solid #28c76f;
+    background: #28c76f;
+    color: #fff;
+    padding: 8px 26px;
+    border-radius: 5px;
+}
+.addBtn:hover {
+    color: #fff;
+    opacity: 0.8;
+}

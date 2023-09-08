@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardTitle, Table, Button, Badge } from "reactstrap";
+import { Card, CardHeader, CardTitle, Table, Badge } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
 import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
@@ -25,10 +25,8 @@ class Reports extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle>Reports</CardTitle>
-            <Link to="/report-create">
-              <Button.Ripple className="" color="success">
-                Add
-              </Button.Ripple>
+            <Link className="addBtn" to="/report-create">
+              Add
             </Link>
           </CardHeader>
           <Table
@@ -60,14 +58,14 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                 <Badge color="light-success">OPEN</Badge>
+                  <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-               <td>
+                <td>
                   <Link to="/report-edit">
                     <Edit size={20} />
                   </Link>
@@ -92,7 +90,7 @@ class Reports extends React.Component {
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-               <td>
+                <td>
                   <Link to="/report-edit">
                     <Edit size={20} />
                   </Link>
@@ -110,14 +108,14 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                 <Badge color="light-success">OPEN</Badge>
+                  <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-               <td>
+                <td>
                   <Link to="/report-edit">
                     <Edit size={20} />
                   </Link>
@@ -142,7 +140,7 @@ class Reports extends React.Component {
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-               <td>
+                <td>
                   <Link to="/report-edit">
                     <Edit size={20} />
                   </Link>
@@ -160,14 +158,14 @@ class Reports extends React.Component {
                 <td>2023-09-10 14:30</td>
                 <td>User XYZ has account login issues.</td>
                 <td>
-                 <Badge color="light-success">OPEN</Badge>
+                  <Badge color="light-success">OPEN</Badge>
                 </td>
                 <td>User XYZ</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
                 <td>N/A</td>
-               <td>
+                <td>
                   <Link to="/report-edit">
                     <Edit size={20} />
                   </Link>

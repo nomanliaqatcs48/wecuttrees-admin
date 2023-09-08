@@ -5,7 +5,6 @@ import {
   CardTitle,
   Table,
   UncontrolledTooltip,
-  Button,
   Badge,
 } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
@@ -34,10 +33,8 @@ class DispatchedOrders extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle>Users</CardTitle>
-            <Link to="/user-create">
-              <Button.Ripple className="" color="success">
+            <Link className="addBtn" to="/user-create">
                 Add
-              </Button.Ripple>
             </Link>
           </CardHeader>
           <Table

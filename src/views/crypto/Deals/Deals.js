@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardTitle, Table, Button, Badge } from "reactstrap";
+import { Card, CardHeader, CardTitle, Table, Badge } from "reactstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
 import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
@@ -25,10 +25,8 @@ class Deals extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle>Deals</CardTitle>
-            <Link to="/deals-create">
-              <Button.Ripple className="" color="success">
+            <Link className="addBtn" to="/deals-create">
                 Add
-              </Button.Ripple>
             </Link>
           </CardHeader>
           <Table
