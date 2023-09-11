@@ -18,9 +18,10 @@ class SidebarHeader extends Component {
         <ul className="nav navbar-nav flex-row">
           <li className="nav-item mr-auto">
             <NavLink to="/dashboard" className="navbar-brand">
-              <img src={logo}  alt="logo" />
+              <img src={logo}  height={30}  alt="logo" />
               {/* <div className="brand-logo" /> */}
-              <h2 className="brand-text mb-0">Crypto Deals</h2>
+              <h2 className="brand-text mb-0">Crypto Admin</h2>
+              {/* <img src={logo}  height={70}  alt="logo" /> */}
             </NavLink>
           </li>
           <li className="nav-item nav-toggle">
