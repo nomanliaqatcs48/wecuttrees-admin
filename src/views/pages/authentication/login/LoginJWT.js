@@ -1,22 +1,32 @@
-import React, {useEffect} from "react"
-import {CardBody, FormGroup, Form, Input, Button, Label, Spinner} from "reactstrap"
-import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy"
-import {Mail, Lock, Check} from "react-feather"
-import {loginWithJWT} from "../../../../redux/actions/auth/loginActions"
+import React, { useEffect } from "react";
+import {
+  CardBody,
+  FormGroup,
+  Form,
+  Input,
+  Button,
+  Label,
+  Spinner,
+} from "reactstrap";
+import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
+import { Mail, Lock, Check } from "react-feather";
+import { loginWithJWT } from "../../../../redux/actions/auth/loginActions";
 // import {connect} from "react-redux"
-import {useDispatch, useSelector} from "react-redux"
-import {history} from "../../../../history"
-import {Formik} from "formik"
-import * as Yup from "yup"
+import { useDispatch, useSelector } from "react-redux";
+import { history } from "../../../../history";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const LoginJWT = () => {
   const dispatch = useDispatch();
 
-  const {loginLoading, loginData, loginError} = useSelector(state => state.auth.login);
+  const { loginLoading, loginData, loginError } = useSelector(
+    (state) => state.auth.login
+  );
 
   useEffect(() => {
     if (loginData?.statusCode === 200) {
-      history.push('/dashboard')
+      history.push("/dashboard");
     }
   }, [loginData]);
 
@@ -25,33 +35,40 @@ const LoginJWT = () => {
       <CardBody className="pt-1">
         <Formik
           initialValues={{
-            email: '',
-            password: '',
+            email: "",
+            password: "",
           }}
           validationSchema={Yup.object({
-            email: Yup.string().email('Invalid email address').required('This field is required.'),
-            password: Yup.string().required('This field is required.')
+            email: Yup.string()
+              .email("Invalid email address")
+              .required("This field is required."),
+            password: Yup.string().required("This field is required."),
           })}
           onSubmit={(values) => {
-            dispatch(loginWithJWT({
-              email: values.email,
-              password: values.password
-            }));
+            dispatch(
+              loginWithJWT({
+                email: values.email,
+                password: values.password,
+              })
+            );
           }}
         >
-          {formik => (
+          {(formik) => (
             <Form onSubmit={formik.handleSubmit}>
               <FormGroup className="form-label-group position-relative has-icon-left">
                 <Input
                   type="email"
                   placeholder="Email"
-                  {...formik.getFieldProps('email')}
+                  {...formik.getFieldProps("email")}
                   disabled={loginLoading}
                 />
                 {formik.touched.email && formik.errors.email && (
-                  <div className="text-danger font-small-2">{formik.errors.email}</div>)}
+                  <div className="text-danger font-small-2">
+                    {formik.errors.email}
+                  </div>
+                )}
                 <div className="form-control-position">
-                  <Mail size={15}/>
+                  <Mail size={15} />
                 </div>
                 <Label>Email</Label>
               </FormGroup>
@@ -59,35 +76,57 @@ const LoginJWT = () => {
                 <Input
                   type="password"
                   placeholder="Password"
-                  {...formik.getFieldProps('password')}
+                  {...formik.getFieldProps("password")}
                   disabled={loginLoading}
                 />
                 {formik.touched.password && formik.errors.password && (
-                  <div className="text-danger font-small-2">{formik.errors.password}</div>)}
+                  <div className="text-danger font-small-2">
+                    {formik.errors.password}
+                  </div>
+                )}
                 <div className="form-control-position">
-                  <Lock size={15}/>
+                  <Lock size={15} />
                 </div>
                 <Label>Password</Label>
               </FormGroup>
               <FormGroup className="d-flex justify-content-between align-items-center">
                 <Checkbox
                   color="primary"
-                  icon={<Check className="vx-icon" size={16}/>}
+                  icon={<Check className="vx-icon" size={16} />}
                   label="Remember me"
                   defaultChecked={false}
                 />
               </FormGroup>
-              <div>
-                <Button color="primary" type="submit"  className="w-100" disabled={loginLoading}>
+              <div className="d-flex justify-content-between">
+                <Button.Ripple
+                  color="primary"
+                  className="base-btn"
+                  outline
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                  disabled={loginLoading || ""}
+                >
+                  Login
+                </Button.Ripple>
+                <Button.Ripple
+                  onClick={() => {
+                    history.push("/register");
+                  }}
+                  color="primary"
+                  className="base-btn"
+                  type="submit"
+                  disabled={loginLoading || ""}
+                >
                   {loginLoading ? (
                     <>
-                      <Spinner color="white" size="LG"/>
-                      <span className="ml-50">Login</span>
+                      <Spinner color="white" size="sm" />
+                      <span className="ml-50">Register</span>
                     </>
                   ) : (
-                    <span className="ml-50">Login</span>
+                    <span className="ml-50">Register</span>
                   )}
-                </Button>
+                </Button.Ripple>
               </div>
             </Form>
           )}
@@ -103,7 +142,6 @@ const LoginJWT = () => {
 };
 
 export default LoginJWT;
-
 
 // class LoginJWT extends React.Component {
 //   state = {

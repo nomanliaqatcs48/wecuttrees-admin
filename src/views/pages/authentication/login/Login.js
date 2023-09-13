@@ -57,65 +57,16 @@ class Login extends React.Component {
                 <img src={loginImg} alt="loginImg" />
               </Col>
               <Col lg="6" md="12" className="p-0">
-                <Card className="rounded-0 mb-0 px-2 login-tabs-container">
-                  <CardHeader className="pb-1">
+                <Card className="rounded-0 mb-0 px-2 pt-3 login-tabs-container">
+                  <CardHeader className="pb-1 pt-50">
                     <CardTitle>
                       <h4 className="mb-0">Login</h4>
                     </CardTitle>
                   </CardHeader>
-                  <p className="px-2 auth-title">
+                  <p className="px-2 auth-title mb-3">
                     Welcome back, please login to your account.
                   </p>
                   <LoginJWT />
-                  {/*<Nav tabs className="px-2">*/}
-                  {/*  <NavItem>*/}
-                  {/*    <NavLink*/}
-                  {/*      className={classnames({*/}
-                  {/*        active: this.state.activeTab === "1"*/}
-                  {/*      })}*/}
-                  {/*      onClick={() => {*/}
-                  {/*        this.toggle("1")*/}
-                  {/*      }}*/}
-                  {/*    >*/}
-                  {/*      JWT*/}
-                  {/*    </NavLink>*/}
-                  {/*  </NavItem>*/}
-                  {/*  <NavItem>*/}
-                  {/*    <NavLink*/}
-                  {/*      className={classnames({*/}
-                  {/*        active: this.state.activeTab === "2"*/}
-                  {/*      })}*/}
-                  {/*      onClick={() => {*/}
-                  {/*        this.toggle("2")*/}
-                  {/*      }}*/}
-                  {/*    >*/}
-                  {/*      Firebase*/}
-                  {/*    </NavLink>*/}
-                  {/*  </NavItem>*/}
-                  {/*  <NavItem>*/}
-                  {/*    <NavLink*/}
-                  {/*      className={classnames({*/}
-                  {/*        active: this.state.activeTab === "3"*/}
-                  {/*      })}*/}
-                  {/*      onClick={() => {*/}
-                  {/*        this.toggle("3")*/}
-                  {/*      }}*/}
-                  {/*    >*/}
-                  {/*      Auth0*/}
-                  {/*    </NavLink>*/}
-                  {/*  </NavItem>*/}
-                  {/*</Nav>*/}
-                  {/*<TabContent activeTab={this.state.activeTab}>*/}
-                  {/*  <TabPane tabId="1">*/}
-                  {/*    <LoginJWT />*/}
-                  {/*  </TabPane>*/}
-                  {/*  <TabPane tabId="2">*/}
-                  {/*    <LoginFirebase />*/}
-                  {/*  </TabPane>*/}
-                  {/*  <TabPane tabId="3">*/}
-                  {/*    <LoginAuth0 />*/}
-                  {/*  </TabPane>*/}
-                  {/*</TabContent>*/}
                 </Card>
               </Col>
             </Row>

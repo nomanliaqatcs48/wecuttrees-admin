@@ -5,11 +5,18 @@ const navigationConfig = [
     id: "users",
     title: "Users",
     type: "item",
-    icon: <Icon.Home size={20} />,
+    icon: <Icon.User size={20} />,
     navLink: "/dashboard"
   },
   {
-    id: "blog",
+    id: "admin",
+    title: "Admins",
+    type: "item",
+    icon: <Icon.Home size={20} />,
+    navLink: "/admin"
+  },
+  {
+    id: "deals",
     title: "Deals",
     type: "item",
     icon: <Icon.Image size={20} />,

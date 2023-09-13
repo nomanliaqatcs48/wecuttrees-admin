@@ -1,19 +1,28 @@
-import React from "react"
-import {Form, FormGroup, Input, Label, Button, Spinner} from "reactstrap"
-import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy"
-import {Check} from "react-feather"
+import React from "react";
+import {
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Button,
+  Spinner,
+  CardBody,
+} from "reactstrap";
+import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
+import { Check } from "react-feather";
 // import { connect } from "react-redux"
-import {useDispatch, useSelector} from "react-redux"
-import {signupWithJWT} from "../../../../redux/actions/auth/registerActions"
-import {history} from "../../../../history"
-import {Formik} from "formik"
-import * as Yup from "yup"
+import { useDispatch, useSelector } from "react-redux";
+import { signupWithJWT } from "../../../../redux/actions/auth/registerActions";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const RegisterJWT = () => {
   const dispatch = useDispatch();
   // const [isSuccess, setIsSuccess] = useState(false);
 
-  const {registrationLoading, registrationData} = useSelector(state => state.auth.register);
+  const { registrationLoading, registrationData } = useSelector(
+    (state) => state.auth.register
+  );
 
   // const handleRedirect = () => {
   //   dispatch(signupWithJWTReset())
@@ -36,120 +45,154 @@ const RegisterJWT = () => {
     <>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
+          firstName: "",
+          lastName: "",
           dob: new Date(),
-          email: '',
-          password: '',
-          confirmPassword: ''
+          email: "",
+          password: "",
+          confirmPassword: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().max(15, 'Must be 15 characters or less').required('This field is required.'),
-          lastName: Yup.string().max(20, 'Must be 20 characters or less').required('This field is required.'),
-          dob: Yup.date().required('This field is required.'),
-          email: Yup.string().email('Invalid email address').required('This field is required.'),
+          firstName: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("This field is required."),
+          lastName: Yup.string()
+            .max(20, "Must be 20 characters or less")
+            .required("This field is required."),
+          dob: Yup.date().required("This field is required."),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("This field is required."),
           // password: Yup.string().min(8).required('This field is required.').matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"),
-          confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('This field is required.')
+          confirmPassword: Yup.string()
+            .oneOf([Yup.ref("password"), null], "Passwords must match")
+            .required("This field is required."),
         })}
         onSubmit={(values) => {
-          dispatch(signupWithJWT({
-            firstName: values.firstName,
-            lastName: values.lastName,
-            dob: new Date(),
-            email: values.email,
-            password: values.password,
-          }));
+          dispatch(
+            signupWithJWT({
+              firstName: values.firstName,
+              lastName: values.lastName,
+              dob: new Date(),
+              email: values.email,
+              password: values.password,
+            })
+          );
         }}
       >
-        {formik => (
-          <Form onSubmit={formik.handleSubmit}>
-            <FormGroup className="form-label-group">
-              <Input
-                type="text"
-                placeholder="First Name"
-                {...formik.getFieldProps('firstName')}
-                disabled={registrationLoading || ''}
-              />
-              {formik.touched.firstName && formik.errors.firstName && (
-                <div className="text-danger font-small-2">{formik.errors.firstName}</div>)}
-              <Label>First Name</Label>
-            </FormGroup>
-            <FormGroup className="form-label-group">
-              <Input
-                type="text"
-                placeholder="Last Name"
-                {...formik.getFieldProps('lastName')}
-                disabled={registrationLoading || ''}
-              />
-              {formik.touched.lastName && formik.errors.lastName && (
-                <div className="text-danger font-small-2">{formik.errors.lastName}</div>)}
-              <Label>Last Name</Label>
-            </FormGroup>
-            <FormGroup className="form-label-group">
-              <Input
-                type="email"
-                placeholder="Email"
-                {...formik.getFieldProps('email')}
-                disabled={registrationLoading || ''}
-              />
-              {formik.touched.email && formik.errors.email && (
-                <div className="text-danger font-small-2">{formik.errors.email}</div>)}
-              <Label>Password</Label>
-            </FormGroup>
-            <FormGroup className="form-label-group">
-              <Input
-                type="password"
-                placeholder="Password"
-                {...formik.getFieldProps('password')}
-                disabled={registrationLoading || ''}
-              />
-              {formik.touched.password && formik.errors.password && (
-                <div className="text-danger font-small-2">{formik.errors.password}</div>)}
-              <Label>Password</Label>
-            </FormGroup>
-            <FormGroup className="form-label-group">
-              <Input
-                type="password"
-                placeholder="Confirm Password"
-                {...formik.getFieldProps('confirmPassword')}
-                disabled={registrationLoading || ''}
-              />
-              {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-                <div className="text-danger font-small-2">{formik.errors.confirmPassword}</div>)}
-              <Label>Confirm Password</Label>
-            </FormGroup>
-            <FormGroup>
-              <Checkbox
-                color="primary"
-                icon={<Check className="vx-icon" size={16}/>}
-                label=" I accept the terms & conditions."
-                checked={true}
-                disabled={registrationLoading || ''}
-              />
-            </FormGroup>
-            <div className="d-flex justify-content-between">
-              <Button.Ripple
-                color="primary"
-                outline
-                onClick={() => {
-                  history.push("/login")
-                }}
-                disabled={registrationLoading || ''}
-              >
-                Login
-              </Button.Ripple>
-              <Button.Ripple color="primary" type="submit" disabled={registrationLoading || ''}>
-                {registrationLoading ? (
-                  <>
-                    <Spinner color="white" size="sm"/>
-                    <span className="ml-50">Register</span>
-                  </>
-                ) : (
-                  <span className="ml-50">Register</span>
+        {(formik) => (
+          <CardBody>
+            <Form onSubmit={formik.handleSubmit}>
+              <FormGroup className="form-label-group">
+                <Input
+                  type="text"
+                  placeholder="First Name"
+                  {...formik.getFieldProps("firstName")}
+                  disabled={registrationLoading || ""}
+                />
+                {formik.touched.firstName && formik.errors.firstName && (
+                  <div className="text-danger font-small-2">
+                    {formik.errors.firstName}
+                  </div>
                 )}
-              </Button.Ripple>
-            </div>
-          </Form>
+                <Label>First Name</Label>
+              </FormGroup>
+              <FormGroup className="form-label-group">
+                <Input
+                  type="text"
+                  placeholder="Last Name"
+                  {...formik.getFieldProps("lastName")}
+                  disabled={registrationLoading || ""}
+                />
+                {formik.touched.lastName && formik.errors.lastName && (
+                  <div className="text-danger font-small-2">
+                    {formik.errors.lastName}
+                  </div>
+                )}
+                <Label>Last Name</Label>
+              </FormGroup>
+              <FormGroup className="form-label-group">
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  {...formik.getFieldProps("email")}
+                  disabled={registrationLoading || ""}
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <div className="text-danger font-small-2">
+                    {formik.errors.email}
+                  </div>
+                )}
+                <Label>Password</Label>
+              </FormGroup>
+              <FormGroup className="form-label-group">
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  {...formik.getFieldProps("password")}
+                  disabled={registrationLoading || ""}
+                />
+                {formik.touched.password && formik.errors.password && (
+                  <div className="text-danger font-small-2">
+                    {formik.errors.password}
+                  </div>
+                )}
+                <Label>Password</Label>
+              </FormGroup>
+              <FormGroup className="form-label-group">
+                <Input
+                  type="password"
+                  placeholder="Confirm Password"
+                  {...formik.getFieldProps("confirmPassword")}
+                  disabled={registrationLoading || ""}
+                />
+                {formik.touched.confirmPassword &&
+                  formik.errors.confirmPassword && (
+                    <div className="text-danger font-small-2">
+                      {formik.errors.confirmPassword}
+                    </div>
+                  )}
+                <Label>Confirm Password</Label>
+              </FormGroup>
+              <FormGroup>
+                <Checkbox
+                  color="primary"
+                  icon={<Check className="vx-icon" size={16} />}
+                  label=" I accept the terms & conditions."
+                  checked={true}
+                  disabled={registrationLoading || ""}
+                />
+              </FormGroup>
+              <div className="d-flex justify-content-between mb-3">
+                <Button
+                  color="primary"
+                  className="w-100"
+                  type="submit"
+                  disabled={registrationLoading || ""}
+                >
+                  {registrationLoading ? (
+                    <>
+                      <Spinner color="white" size="sm" />
+                      <span className="ml-50">Register</span>
+                    </>
+                  ) : (
+                    <span className="ml-50">Register</span>
+                  )}
+                </Button>
+                {/* <Button.Ripple
+                  color="primary"
+                  className="base-btn"
+                  outline
+                  onClick={() => {
+                    history.push("/login");
+                  }}
+                  disabled={registrationLoading || ""}
+                >
+                  Login
+                </Button.Ripple> */}
+              </div>
+            </Form>
+          </CardBody>
         )}
       </Formik>
       {registrationData?.statusCode && (
@@ -158,7 +201,7 @@ const RegisterJWT = () => {
         </div>
       )}
     </>
-  )
+  );
 };
 
 export default RegisterJWT;

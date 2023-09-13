@@ -15,6 +15,9 @@ import DealCreate from "./views/crypto/Deals/DealCreate"
 import DealEdit from "./views/crypto/Deals/DealEdit"
 import ReportCreate from "./views/crypto/Reports/ReportCreate"
 import ReportEdit from "./views/crypto/Reports/ReportEdit"
+import AdminCreate from "./views/dashboard/admin/AdminCreate"
+import AdminEdit from "./views/dashboard/admin/AdminEdit"
+import Admins from "./views/dashboard/admin/Admin"
 
 // Route-based code splitting
 const analyticsDashboard = lazy(() =>
@@ -241,6 +244,9 @@ class AppRouter extends React.Component {
           <AppRoute path="/admin/reports" component={Reports}/>
           <AppRoute path="/report-create" component={ReportCreate}/>
           <AppRoute path="/report-edit" component={ReportEdit}/>
+          <AppRoute path="/admin" component={Admins}/>
+          <AppRoute path="/admin-create" component={AdminCreate}/>
+          <AppRoute path="/admin-edit" component={AdminEdit}/>
           <AppRoute path="/admin/edit-blog/:id" component={editBlog}/>
           <AppRoute path="/admin/add-page" component={addPage}/>
           <AppRoute path="/admin/all-pages" component={allPage}/>

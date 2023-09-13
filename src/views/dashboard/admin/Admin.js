@@ -12,7 +12,7 @@ import avatar3 from "../../../assets/img/portrait/small/avatar-s-10.jpg";
 import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
 import { Edit, Trash } from "react-feather";
-class DispatchedOrders extends React.Component {
+class Admins extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,8 +32,8 @@ class DispatchedOrders extends React.Component {
       <>
         <Card>
           <CardHeader>
-            <CardTitle>Users</CardTitle>
-            <Link className="addBtn" to="/user-create">
+            <CardTitle>Admins</CardTitle>
+            <Link className="addBtn" to="/admin-create">
                 Add
             </Link>
           </CardHeader>
@@ -43,9 +43,9 @@ class DispatchedOrders extends React.Component {
           >
             <thead>
               <tr>
-                <th>USER ID</th>
-                <th>USER</th>
-                <th>USERNAME</th>
+                <th>ADMIN ID</th>
+                <th>ADMIN</th>
+                <th>ADMIN NAME</th>
                 <th>EMAIL ADDRESS</th>
                 <th>REGISTRATION DATE</th>
                 <th>STATUS</th>
@@ -78,7 +78,7 @@ class DispatchedOrders extends React.Component {
                   <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -110,7 +110,7 @@ class DispatchedOrders extends React.Component {
                 <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -141,7 +141,7 @@ class DispatchedOrders extends React.Component {
                  <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -173,7 +173,7 @@ class DispatchedOrders extends React.Component {
                   <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -204,7 +204,7 @@ class DispatchedOrders extends React.Component {
                  <Badge color="light-success">VARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -236,7 +236,7 @@ class DispatchedOrders extends React.Component {
                   <Badge color="light-danger">UNVARIFIED</Badge>
                 </td>
                 <td>
-                  <Link to="/user-edit">
+                  <Link to="/admin-edit">
                     <Edit size={20} />
                   </Link>
                   <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
@@ -269,4 +269,4 @@ class DispatchedOrders extends React.Component {
     );
   }
 }
-export default DispatchedOrders;
+export default Admins;
