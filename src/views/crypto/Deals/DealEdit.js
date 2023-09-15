@@ -41,15 +41,6 @@ class DealEdit extends React.Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup>
-                    <Label for="username">Created By</Label>
-                    <Input
-                      type="text"
-                      placeholder="created by"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
                     <Label for="username">Max  Price</Label>
                     <Input
                       type="number"
