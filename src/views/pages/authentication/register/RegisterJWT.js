@@ -71,8 +71,7 @@ const RegisterJWT = () => {
         onSubmit={(values) => {
           dispatch(
             signupWithJWT({
-              firstName: values.firstName,
-              lastName: values.lastName,
+              displayName: values.firstName + ' ' + values.lastName,
               dob: new Date(),
               email: values.email,
               password: values.password,

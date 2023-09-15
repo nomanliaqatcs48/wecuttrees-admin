@@ -236,7 +236,7 @@ export const loginWithJWT = (dataObj) => async (dispatch) => {
   dispatch({type: LOGIN.REQUEST});
   const headers = {'Accept': 'application/json'}
   try {
-    const {data, status} = await axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`, dataObj, {headers: headers});
+    const {data, status} = await axios.post(`https://api-cryptodeals.invo.zone/api/admin/login`, dataObj, {headers: headers});
     setLocalData(dataObj, data)
     dispatch({type: LOGIN.SUCCESS, payload: data, status});
   } catch (error) {

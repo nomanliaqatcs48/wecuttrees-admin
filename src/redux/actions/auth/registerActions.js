@@ -92,7 +92,7 @@ export const signupWithJWT = (dataObj) => async (dispatch) => {
   dispatch({type: REGISTRATION.REQUEST});
   const headers = {'Accept': 'application/json'}
   try {
-    const {data, status} = await Axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/register`, dataObj, {headers: headers});
+    const {data, status} = await Axios.post(`https://api-cryptodeals.invo.zone/api/admin/signup`, dataObj, {headers: headers});
     setLocalData(dataObj, data)
     dispatch({type: REGISTRATION.SUCCESS, payload: data, status});
   } catch (error) {

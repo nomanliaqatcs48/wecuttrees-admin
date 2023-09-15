@@ -1,85 +1,102 @@
-import React from "react";
-import {
-  Row,
-  Col,
-  Button,
-  Form,
-  Input,
-  Label,
-  FormGroup,
-  Card,
-  CardHeader,
-  CardTitle,
-} from "reactstrap";
-class UserCreate extends React.Component {
-  state = {
-    dob: new Date("2023-08-6"),
+// CreateUserForm.js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createUser } from '../actions';
+
+class UserCreate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayName: '',
+      email: '',
+      password: '',
+      status: 'Verified',
+    };
+  }
+
+  handleInputChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
   };
-  handledob = (date) => {
-    this.setState({
-      dob: date,
-    });
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // Dispatch the createUser action with the form data
+    this.props.createUser(this.state);
   };
+
   render() {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Create User</CardTitle>
-        </CardHeader>
-        <Row className="p-2">
-          <Col sm="12">
-            <Form onSubmit={(e) => e.preventDefault()}>
-              <Row>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="username">Username</Label>
-                    <Input type="text" id="username" placeholder="Username" />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="username">Email Address</Label>
-                    <Input
-                      type="email"
-                      id="email"
-                      placeholder="Email Address"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="username">Passowrd</Label>
-                    <Input
-                      type="password"
-                      id="password"
-                      placeholder="Password"
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="status">Status</Label>
-                    <Input type="select" name="status" id="status">
-                      <option>Varified</option>
-                      <option>Unvarified</option>
-                    </Input>
-                  </FormGroup>
-                </Col>
-                <Col
-                  className="d-flex justify-content-end flex-wrap mt-2"
-                  sm="12"
-                >
-                  <Button.Ripple className="mr-1" color="primary">
-                    Save Changes
-                  </Button.Ripple>
-                  <Button.Ripple color="flat-warning">Reset</Button.Ripple>
-                </Col>
-              </Row>
-            </Form>
-          </Col>
-        </Row>
-      </Card>
+      <form onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div className="col-md-6 col-sm-12">
+            <div className="form-group">
+              <label htmlFor="displayName">Username</label>
+              <input
+                type="text"
+                id="displayName"
+                className="form-control"
+                placeholder="Username"
+                onChange={this.handleInputChange}
+                value={this.state.displayName}
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12">
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                className="form-control"
+                placeholder="Email Address"
+                onChange={this.handleInputChange}
+                value={this.state.email}
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12">
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                className="form-control"
+                placeholder="Password"
+                onChange={this.handleInputChange}
+                value={this.state.password}
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12">
+            <div className="form-group">
+              <label htmlFor="status">Status</label>
+              <select
+                id="status"
+                className="form-control"
+                onChange={this.handleInputChange}
+                value={this.state.status}
+              >
+                <option>Verified</option>
+                <option>Unverified</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="d-flex justify-content-end flex-wrap mt-2">
+          <button className="btn btn-primary mr-1" type="submit">
+            Save Changes
+          </button>
+          <button className="btn btn-flat-warning" type="button">
+            Reset
+          </button>
+        </div>
+      </form>
     );
   }
 }
-export default UserCreate;
+
+const mapDispatchToProps = {
+  createUser,
+};
+
+export default connect(null, mapDispatchToProps)(UserCreate);

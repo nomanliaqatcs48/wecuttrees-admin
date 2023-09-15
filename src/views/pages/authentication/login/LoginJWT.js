@@ -106,6 +106,7 @@ const LoginJWT = () => {
                     history.push("/login");
                   }}
                   disabled={loginLoading || ""}
+                  type="submit"
                 >
                   Login
                 </Button.Ripple>
