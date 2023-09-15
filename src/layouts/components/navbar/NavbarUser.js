@@ -12,6 +12,7 @@ import axios from "axios"
 import * as Icon from "react-feather"
 import { useAuth0 } from "../../../authServices/auth0/auth0Service"
 import { history } from "../../../history"
+import uerImg from '../../../assets/img/profile/user-uploads/userImg.png'
 
 
 const UserDropdown = props => {
@@ -655,7 +656,7 @@ class NavbarUser extends React.PureComponent {
             </div>
             <span data-tour="user">
               <img
-                src={this.props.userImg}
+                src={uerImg}
                 className="round"
                 height="40"
                 width="40"

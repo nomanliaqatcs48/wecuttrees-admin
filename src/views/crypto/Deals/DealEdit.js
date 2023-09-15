@@ -59,6 +59,15 @@ class DealEdit extends React.Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup>
+                    <Label for="username">Stop loss Price</Label>
+                    <Input
+                      type="number"
+                      placeholder="Stop Loss Price"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md="6" sm="12">
+                  <FormGroup>
                     <Label for="username">Expiration Date</Label>
                     <Flatpickr
                       id="dob"
@@ -69,16 +78,7 @@ class DealEdit extends React.Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="coin">Coin</Label>
-                    <Input type="select" name="coin" id="coin">
-                      <option>Bitcoin</option>
-                      <option>Eth</option>
-                    </Input>
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
+                {/* <Col md="6" sm="12">
                   <FormGroup>
                     <Label for="status">Status</Label>
                     <Input type="select" name="status" id="status">
@@ -86,7 +86,7 @@ class DealEdit extends React.Component {
                       <option>InActive</option>
                     </Input>
                   </FormGroup>
-                </Col>
+                </Col> */}
                 <Col
                   className="d-flex justify-content-end flex-wrap mt-2"
                   sm="12"

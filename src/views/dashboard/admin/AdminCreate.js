@@ -11,9 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "reactstrap";
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/light.css";
-import "../../../assets/scss/plugins/forms/flatpickr/flatpickr.scss";
 class AdminCreate extends React.Component {
   state = {
     dob: new Date("2023-08-6"),
@@ -51,13 +48,11 @@ class AdminCreate extends React.Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup>
-                    <Label for="username">Registration Date</Label>
-                    <Flatpickr
-                      id="dob"
-                      className="form-control"
-                      options={{ dateFormat: "Y-m-d" }}
-                      value={this.state.dob}
-                      onChange={(date) => this.handledob(date)}
+                    <Label for="username">Password</Label>
+                    <Input
+                      type="password"
+                      id="password"
+                      placeholder="Password"
                     />
                   </FormGroup>
                 </Col>

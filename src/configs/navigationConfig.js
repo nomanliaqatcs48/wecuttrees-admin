@@ -22,13 +22,13 @@ const navigationConfig = [
     icon: <Icon.Image size={20} />,
     navLink: "/admin/deals"
   },
-  {
-    id: "dynamic-pages",
-    title: "Reports",
-    type: "item",
-    icon: <Icon.List size={20} />,
-    navLink: "/admin/reports"
-  },
+  // {
+  //   id: "dynamic-pages",
+  //   title: "Reports",
+  //   type: "item",
+  //   icon: <Icon.List size={20} />,
+  //   navLink: "/admin/reports"
+  // },
   // {
   //   type: "groupHeader",
   //   groupTitle: "APPS"

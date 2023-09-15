@@ -25,9 +25,6 @@ class Deals extends React.Component {
         <Card>
           <CardHeader>
             <CardTitle>Deals</CardTitle>
-            <Link className="addBtn" to="/deals-create">
-                Add
-            </Link>
           </CardHeader>
           <Table
             responsive
