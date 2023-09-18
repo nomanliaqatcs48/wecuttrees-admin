@@ -58,10 +58,11 @@ const UserDropdown = props => {
       {/* <DropdownItem divider /> */}
       <DropdownItem
         tag="a"
-        href="/pages/login"
+        href="/login"
         onClick={e => {
           e.preventDefault()
           if (isAuthenticated) {
+            localStorage.removeItem(process.env.REACT_APP_USER_DATA);
             return logout({
               returnTo: window.location.origin + process.env.REACT_APP_PUBLIC_PATH
             })
@@ -75,7 +76,8 @@ const UserDropdown = props => {
                 return props.logoutWithFirebase()
               }
             } else {
-              history.push("/pages/login")
+              localStorage.removeItem(process.env.REACT_APP_USER_DATA);
+              history.push("/login")
             }
           }
 

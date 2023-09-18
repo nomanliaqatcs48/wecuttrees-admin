@@ -9,6 +9,7 @@ import navbar from "./navbar/Index";
 import dataList from "./data-list/";
 import page from "./page/";
 import blog from "./blog/";
+import user from "./user";
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   dataList: dataList,
   page: page,
   blog: blog,
+  user
 });
 
 export default rootReducer;

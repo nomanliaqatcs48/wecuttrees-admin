@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
 import { Edit, Trash } from "react-feather";
 import { connect } from 'react-redux';
-import { fetchAllUsers } from '../actions';
+import { fetchAllUsers } from '../../../redux/actions/user';
 class DispatchedOrders extends React.Component {
   constructor(props) {
     super(props);

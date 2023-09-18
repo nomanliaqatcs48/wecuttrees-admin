@@ -1,7 +1,7 @@
 // CreateUserForm.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUser } from '../actions';
+import { createUser } from '../../../redux/actions/user';
 
 class UserCreate extends Component {
   constructor(props) {

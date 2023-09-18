@@ -230,6 +230,10 @@ const setLocalData = (dataObj, response) => {
     role: 'admin'
   }
   localStorage.setItem(process.env.REACT_APP_USER_DATA, JSON.stringify(data));
+  debugger
+  axios.defaults.headers.common = {
+    token: `${data.accessToken}`,
+  };
 }
 
 export const loginWithJWT = (dataObj) => async (dispatch) => {

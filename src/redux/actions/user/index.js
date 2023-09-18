@@ -19,14 +19,8 @@ export const createUser = (userData) => {
 export const fetchAllUsers = () => {
   return async (dispatch) => {
     try {
-      const token = localStorage.getItem('accessToken'); // Retrieve the token from local storage
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-debugger
-      const response = await axios.get('/api/users/users-list', config); // Adjust the API endpoint as needed
+      
+      const response = await axios.get('/api/users/users-list'); // Adjust the API endpoint as needed
 
       // If fetching users is successful, dispatch a success action
       dispatch({ type: 'FETCH_USERS_SUCCESS', payload: response.data });
