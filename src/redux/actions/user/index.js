@@ -43,3 +43,19 @@ export const deleteUser = (userId) => {
     }
   };
 };
+
+// Action to edit user data
+export const editUser = (updatedUserData) => {
+  return async (dispatch) => {
+    try {
+      // Send a PUT or PATCH request to your user update API endpoint
+      const response = await axios.post(`/api/users/update-profile`, updatedUserData); // Adjust the API endpoint as needed
+
+      // If user update is successful, dispatch a success action
+      dispatch({ type: 'EDIT_USER_SUCCESS', payload: response.data });
+    } catch (error) {
+      // If user update fails, dispatch a failure action
+      dispatch({ type: 'EDIT_USER_FAILURE', payload: error.response.data });
+    }
+  };
+};

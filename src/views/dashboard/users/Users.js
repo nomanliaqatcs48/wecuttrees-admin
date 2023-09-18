@@ -102,9 +102,15 @@ class DispatchedOrders extends React.Component {
               </Badge>
             </td>
             <td>
-              <Link to={`/user-edit/${user._id}`}>
-                <Edit size={20} />
-              </Link>
+            <Link
+              to={{
+                pathname: `/user-edit/${user._id}`,
+                state: { user: user }, // Pass the user object in the state
+              }}
+            >
+              <Edit size={20} />
+            </Link>
+
               <Trash
                 size={20}
                 color="#ff0000"
