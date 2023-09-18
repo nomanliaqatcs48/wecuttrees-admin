@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   dataList: dataList,
   page: page,
   blog: blog,
-  user
+  user: user,
 });
 
 export default rootReducer;

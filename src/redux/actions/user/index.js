@@ -19,14 +19,27 @@ export const createUser = (userData) => {
 export const fetchAllUsers = () => {
   return async (dispatch) => {
     try {
-      
       const response = await axios.get('/api/users/users-list'); // Adjust the API endpoint as needed
-
       // If fetching users is successful, dispatch a success action
-      dispatch({ type: 'FETCH_USERS_SUCCESS', payload: response.data });
+      dispatch({ type: 'FETCH_USERS_SUCCESS', payload: response.data.users });
     } catch (error) {
       // If fetching users fails, dispatch a failure action
       dispatch({ type: 'FETCH_USERS_FAILURE', payload: error.response.data });
+    }
+  };
+};
+
+export const deleteUser = (userId) => {
+  return async (dispatch) => {
+    try {
+      // Send a DELETE request to your user deletion API endpoint
+      await axios.post(`/api/users/delete`, {userId: userId.toString()}); // Adjust the API endpoint as needed
+
+      // If user deletion is successful, dispatch a success action
+      dispatch({ type: 'DELETE_USER_SUCCESS', payload: userId });
+    } catch (error) {
+      // If user deletion fails, dispatch a failure action
+      dispatch({ type: 'DELETE_USER_FAILURE', payload: error.response.data });
     }
   };
 };

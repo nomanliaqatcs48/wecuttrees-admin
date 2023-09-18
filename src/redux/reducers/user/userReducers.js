@@ -37,6 +37,13 @@ export const userReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case 'DELETE_USER_SUCCESS':
+      // Filter out the deleted user by comparing user IDs
+      const updatedUsers = state.users.filter((user) => user.id !== action.payload);
+      return {
+        ...state,
+        users: updatedUsers,
+      };
     default:
       return state;
   }
