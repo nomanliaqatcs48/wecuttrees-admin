@@ -12,12 +12,18 @@ import avatar3 from "../../../assets/img/portrait/small/avatar-s-10.jpg";
 import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
 import { Edit, Trash } from "react-feather";
+import { connect } from 'react-redux';
+import { fetchAllUsers } from '../actions';
 class DispatchedOrders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       deleteAlert: false,
     };
+  }
+  componentDidMount() {
+    // Fetch users when the component mounts
+    this.props.fetchAllUsers();
   }
   showDeleteAlert = () => {
     this.setState({ deleteAlert: true });
@@ -28,6 +34,14 @@ class DispatchedOrders extends React.Component {
     this.setState({ deleteAlert: false });
   };
   render() {
+    const { users, loading, error } = this.props;
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    }
     return (
       <>
         <Card>
@@ -111,4 +125,16 @@ class DispatchedOrders extends React.Component {
     );
   }
 }
-export default DispatchedOrders;
+
+const mapStateToProps = (state) => ({
+  users: state.users,
+  loading: state.loading,
+  error: state.error,
+});
+
+const mapDispatchToProps = {
+  fetchAllUsers, // Connect the fetchAllUsers action to your component
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DispatchedOrders);

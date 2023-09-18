@@ -82,7 +82,7 @@ import {REGISTRATION} from "../../constant/auth/registerConstants";
 const setLocalData = (dataObj, response) => {
   const data = {
     email: dataObj.email,
-    accessToken: response.accessToken,
+    accessToken: response.token,
     role: 'admin'
   }
   localStorage.setItem(process.env.REACT_APP_USER_DATA, JSON.stringify(data));

@@ -3,6 +3,9 @@ const initialState = {
     creationLoading: false,
     creationSuccess: false,
     creationError: null,
+    users: [], // Initialize an empty array to store users
+    loading: false,
+    error: null,
   };
   
   const reducer = (state = initialState, action) => {
@@ -20,6 +23,19 @@ const initialState = {
           creationLoading: false,
           creationSuccess: false,
           creationError: action.payload,
+        };
+      case 'FETCH_USERS_SUCCESS':
+        return {
+          ...state,
+          users: action.payload,
+          loading: false,
+          error: null,
+        };
+      case 'FETCH_USERS_FAILURE':
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
         };
       default:
         return state;
