@@ -37,6 +37,35 @@ export const userReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case 'DELETE_USER_SUCCESS':
+      // Filter out the deleted user by comparing user IDs
+      const deletedUsers = state.users.filter((user) => user.id !== action.payload);
+      return {
+        ...state,
+        users: deletedUsers,
+      };
+      case 'EDIT_USER_SUCCESS':
+        // Find the index of the edited user in the users array
+        const editedUserIndex = state.users.findIndex(
+          (user) => user._id === action.payload._id
+        );
+  
+        // Create a new array with the edited user
+        const updatedUsers = [...state.users];
+        updatedUsers[editedUserIndex] = action.payload;
+  
+        return {
+          ...state,
+          users: updatedUsers,
+          loading: false,
+          error: null,
+        };
+      case 'EDIT_USER_FAILURE':
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
     default:
       return state;
   }
