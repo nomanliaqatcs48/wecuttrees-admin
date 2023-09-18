@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react"
+import React, { Suspense, lazy, useEffect } from "react"
 import { Router, Switch, Route } from "react-router-dom"
 import { history } from "./history"
 import { connect } from "react-redux"
@@ -18,6 +18,7 @@ import ReportEdit from "./views/crypto/Reports/ReportEdit"
 import AdminCreate from "./views/dashboard/admin/AdminCreate"
 import AdminEdit from "./views/dashboard/admin/AdminEdit"
 import Admins from "./views/dashboard/admin/Admin"
+import axios from "axios"
 
 // Route-based code splitting
 const analyticsDashboard = lazy(() =>
@@ -190,7 +191,27 @@ const editPage = lazy(() => import("./views/page/editPage"))
 // --- End Used Routes ---
 const accessControl = lazy(() =>import("./extensions/access-control/AccessControl"))
 // Set Layout and Component Using App Route
-const RouteConfig = ({ component: Component, fullLayout, ...rest }) => (
+const RouteConfig = ({ component: Component, privateRoute,
+  path, fullLayout, ...rest }) => {
+
+  const userIfo = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_USER_DATA)
+  );
+
+  useEffect(() => {
+    if (!userIfo) {
+      if (privateRoute) {
+        history.push("/login");
+      }
+      return;
+    }
+    axios.defaults.headers.common = {
+      token: `${userIfo.accessToken}`,
+    };
+
+  }, [path, privateRoute]);
+
+  return(
   <Route
     {...rest}
     render={props => {
@@ -215,7 +236,7 @@ const RouteConfig = ({ component: Component, fullLayout, ...rest }) => (
       )
     }}
   />
-)
+)}
 const mapStateToProps = state => {
   return {
     user: state.auth.login.userRole
@@ -235,22 +256,22 @@ class AppRouter extends React.Component {
           <AppRoute path="/login" component={Login} fullLayout />
           <AppRoute path="/register" component={register} fullLayout />
           <AppRoute path="/forgot-password" component={forgotPassword} fullLayout/>
-          <AppRoute path="/dashboard" component={analyticsDashboard}/>
-          <AppRoute path="/user-create" component={UserCreate}/>
-          <AppRoute path="/user-edit" component={UserEdit}/>
-          <AppRoute path="/admin/deals" component={Deals}/>
-          <AppRoute path="/deals-create" component={DealCreate}/>
-          <AppRoute path="/deal-edit" component={DealEdit}/>
-          <AppRoute path="/admin/reports" component={Reports}/>
-          <AppRoute path="/report-create" component={ReportCreate}/>
-          <AppRoute path="/report-edit" component={ReportEdit}/>
-          <AppRoute path="/admin" component={Admins}/>
-          <AppRoute path="/admin-create" component={AdminCreate}/>
-          <AppRoute path="/admin-edit" component={AdminEdit}/>
-          <AppRoute path="/admin/edit-blog/:id" component={editBlog}/>
-          <AppRoute path="/admin/add-page" component={addPage}/>
-          <AppRoute path="/admin/all-pages" component={allPage}/>
-          <AppRoute path="/admin/edit-page/:id" component={editPage}/>
+          <AppRoute path="/dashboard" component={analyticsDashboard} privateRoute/>
+          <AppRoute path="/user-create" component={UserCreate} privateRoute/>
+          <AppRoute path="/user-edit" component={UserEdit} privateRoute />
+          <AppRoute path="/admin/deals" component={Deals} privateRoute/>
+          <AppRoute path="/deals-create" component={DealCreate} privateRoute />
+          <AppRoute path="/deal-edit" component={DealEdit} privateRoute />
+          <AppRoute path="/admin/reports" component={Reports} privateRoute />
+          <AppRoute path="/report-create" component={ReportCreate} privateRoute />
+          <AppRoute path="/report-edit" component={ReportEdit} privateRoute />
+          <AppRoute path="/admin" component={Admins} privateRoute />
+          <AppRoute path="/admin-create" component={AdminCreate} privateRoute />
+          <AppRoute path="/admin-edit" component={AdminEdit} privateRoute />
+          <AppRoute path="/admin/edit-blog/:id" component={editBlog} privateRoute />
+          <AppRoute path="/admin/add-page" component={addPage} privateRoute />
+          <AppRoute path="/admin/all-pages" component={allPage} privateRoute />
+          <AppRoute path="/admin/edit-page/:id" component={editPage} privateRoute />
           {/* --- End Used Components ---*/}
 
           {/*<AppRoute exact path="/" component={analyticsDashboard} />*/}
