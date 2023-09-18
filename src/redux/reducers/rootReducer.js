@@ -10,6 +10,7 @@ import dataList from "./data-list/";
 import page from "./page/";
 import blog from "./blog/";
 import user from "./user";
+import admin from "./admin";
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   dataList: dataList,
   page: page,
   blog: blog,
-  user
+  user,
+  admin
 });
 
 export default rootReducer;

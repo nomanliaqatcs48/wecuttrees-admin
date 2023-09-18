@@ -267,7 +267,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/report-edit" component={ReportEdit} privateRoute />
           <AppRoute path="/admin" component={Admins} privateRoute />
           <AppRoute path="/admin-create" component={AdminCreate} privateRoute />
-          <AppRoute path="/admin-edit" component={AdminEdit} privateRoute />
+          <AppRoute path="/admin-edit" component={AdminCreate} privateRoute />
           <AppRoute path="/admin/edit-blog/:id" component={editBlog} privateRoute />
           <AppRoute path="/admin/add-page" component={addPage} privateRoute />
           <AppRoute path="/admin/all-pages" component={allPage} privateRoute />

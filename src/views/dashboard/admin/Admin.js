@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   Card,
   CardHeader,
@@ -12,22 +12,43 @@ import avatar3 from "../../../assets/img/portrait/small/avatar-s-10.jpg";
 import { Link } from "react-router-dom";
 import PaginationIconsAndText from "../../../components/reactstrap/pagination/PaginationIconsAndText";
 import { Edit, Trash } from "react-feather";
-class Admins extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      deleteAlert: false,
-    };
-  }
-  showDeleteAlert = () => {
-    this.setState({ deleteAlert: true });
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminsList, deleteAdmin } from '../../../redux/actions/admin';
+import axios from "axios";
+
+const Admins = () => {
+  const [deleteAlert, setDeleteAlert] = useState(false);
+  const [selectedAdminId, setSelectedAdminId] = useState('')
+  const [adminsList, setAdminsList] = useState([])
+  const { list } = useSelector((state) => state.admin.adminReducers);
+  const dispatch = useDispatch();
+  const showDeleteAlert = (id) => {
+    setDeleteAlert(true);
+    setSelectedAdminId(id)
   };
 
+  useEffect(() => {
+
+  const userIfo = JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_USER_DATA)
+  );
+
+    axios.defaults.headers.common = {
+      token: `${userIfo.accessToken}`,
+    };
+    dispatch(getAdminsList())
+  }, []);
+
+  useEffect(() => {
+    setAdminsList(list);
+
+  }, [list]);
   // To hide the delete alert
-  hideDeleteAlert = () => {
-    this.setState({ deleteAlert: false });
+  const hideDeleteAlert = () => {
+    setDeleteAlert(false);
+    setSelectedAdminId('')
   };
-  render() {
+  // render() {
     return (
       <>
         <Card>
@@ -44,204 +65,33 @@ class Admins extends React.Component {
             <thead>
               <tr>
                 <th>ADMIN ID</th>
-                <th>ADMIN</th>
+                {/* <th>ADMIN</th> */}
                 <th>ADMIN NAME</th>
                 <th>EMAIL ADDRESS</th>
                 <th>REGISTRATION DATE</th>
-                <th>STATUS</th>
+                {/* <th>STATUS</th> */}
                 <th>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>#879985</td>
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Trina Lynes
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
+              {adminsList.length>0 && adminsList.map((admin, i) => (
+              <tr key={i}>
+                <td>{admin._id}</td>
+                
+                <td>{admin.displayName}</td>
+                <td>{admin.email}</td>
+                <td>{admin.createdAt}</td>
+                {/* <td>
                   <Badge color="light-success">VARIFIED</Badge>
-                </td>
+                </td> */}
                 <td>
-                  <Link to="/admin-edit">
+                  <Link to={`admin-edit/${admin._id}`}>
                     <Edit size={20} />
                   </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
+                  <Trash size={20} style={{cursor: 'pointer'}} color="#ff0000" onClick={()=> showDeleteAlert(admin._id)} />
                 </td>
               </tr>
-              <tr>
-                <td>#879985</td>
-
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Sana Zafar
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
-                <Badge color="light-danger">UNVARIFIED</Badge>
-                </td>
-                <td>
-                  <Link to="/admin-edit">
-                    <Edit size={20} />
-                  </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
-                </td>
-              </tr>
-              <tr>
-                <td>#879985</td>
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Trina Lynes
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
-                 <Badge color="light-success">VARIFIED</Badge>
-                </td>
-                <td>
-                  <Link to="/admin-edit">
-                    <Edit size={20} />
-                  </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
-                </td>
-              </tr>
-              <tr>
-                <td>#879985</td>
-
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Sana Zafar
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
-                  <Badge color="light-danger">UNVARIFIED</Badge>
-                </td>
-                <td>
-                  <Link to="/admin-edit">
-                    <Edit size={20} />
-                  </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
-                </td>
-              </tr>
-              <tr>
-                <td>#879985</td>
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Trina Lynes
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
-                 <Badge color="light-success">VARIFIED</Badge>
-                </td>
-                <td>
-                  <Link to="/admin-edit">
-                    <Edit size={20} />
-                  </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
-                </td>
-              </tr>
-              <tr>
-                <td>#879985</td>
-
-                <td>
-                  <ul className="list-unstyled users-list m-0 d-flex">
-                    <li className="avatar pull-up">
-                      <img
-                        src={avatar3}
-                        alt="avatar"
-                        height="30"
-                        width="30"
-                        id="avatar5"
-                      />
-                      <UncontrolledTooltip placement="bottom" target="avatar5">
-                        Sana Zafar
-                      </UncontrolledTooltip>
-                    </li>
-                  </ul>
-                </td>
-                <td>Sana Zafar</td>
-                <td>sana.zafar@invozone.com</td>
-                <td>05-09-2023</td>
-                <td>
-                  <Badge color="light-danger">UNVARIFIED</Badge>
-                </td>
-                <td>
-                  <Link to="/admin-edit">
-                    <Edit size={20} />
-                  </Link>
-                  <Trash size={20} color="#ff0000" onClick={this.showDeleteAlert} />
-                </td>
-              </tr>
+              ))}
             </tbody>
            
           </Table>
@@ -250,23 +100,24 @@ class Admins extends React.Component {
         <SweetAlert
           title="Are you sure?"
           warning
-          show={this.state.deleteAlert}
+          show={deleteAlert}
           showCancel
           reverseButtons
           cancelBtnBsStyle="danger"
           confirmBtnText="Yes, delete it!"
           cancelBtnText="Cancel"
-          onConfirm={() => {
-            this.hideDeleteAlert();
+          onConfirm={() => {      
+            dispatch(deleteAdmin(selectedAdminId));
+            hideDeleteAlert();
           }}
           onCancel={() => {
-            this.hideDeleteAlert();
+            hideDeleteAlert();
           }}
         >
           You won't be able to revert this!
         </SweetAlert>
       </>
     );
-  }
+  // }
 }
 export default Admins;
