@@ -6,7 +6,7 @@ export const createUser = (userData) => {
     try {
         debugger
       // Send a POST request to your user creation API endpoint
-      const response = await axios.post('https://api-cryptodeals.invo.zone/api/users/signup', userData);
+      const response = await axios.post('/api/users/signup', userData);
 
       // If user creation is successful, dispatch a success action
       dispatch({ type: 'CREATE_USER_SUCCESS', payload: response.data });

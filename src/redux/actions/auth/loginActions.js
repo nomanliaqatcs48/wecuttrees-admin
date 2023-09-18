@@ -208,14 +208,14 @@ export const loginWithGithub = () => {
 export const logoutWithJWT = () => {
   return dispatch => {
     dispatch({ type: "LOGOUT_WITH_JWT", payload: {} })
-    history.push("/pages/login")
+    history.push("/login")
   }
 }
 
 export const logoutWithFirebase = user => {
   return dispatch => {
     dispatch({ type: "LOGOUT_WITH_FIREBASE", payload: {} })
-    history.push("/pages/login")
+    history.push("/login")
   }
 }
 
@@ -236,7 +236,7 @@ export const loginWithJWT = (dataObj) => async (dispatch) => {
   dispatch({type: LOGIN.REQUEST});
   const headers = {'Accept': 'application/json'}
   try {
-    const {data, status} = await axios.post(`https://api-cryptodeals.invo.zone/api/admin/login`, dataObj, {headers: headers});
+    const {data, status} = await axios.post(`/api/admin/login`, dataObj, {headers: headers});
     setLocalData(dataObj, data)
     dispatch({type: LOGIN.SUCCESS, payload: data, status});
   } catch (error) {
