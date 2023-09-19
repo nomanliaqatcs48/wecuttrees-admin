@@ -97,7 +97,7 @@ class DispatchedOrders extends React.Component {
             <td>{user.email}</td>
             <td>{user.createdAt}</td>
             <td>
-              <Badge color={user.status === 'un-verified' ? 'light-danger' : 'light-success'}>
+              <Badge color={user.status === 'Verified' ? 'light-success' : 'light-danger'}>
                 {user.status}
               </Badge>
             </td>

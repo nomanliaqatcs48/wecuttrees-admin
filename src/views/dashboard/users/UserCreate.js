@@ -77,7 +77,7 @@ class UserCreate extends Component {
                 value={this.state.status}
               >
                 <option>Verified</option>
-                <option>Unverified</option>
+                <option>un-verified</option>
               </select>
             </div>
           </div>
