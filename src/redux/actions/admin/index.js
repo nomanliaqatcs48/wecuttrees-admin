@@ -1,17 +1,17 @@
 // Admin Actions
 import axios from "axios";
-import { toast } from "react-toastify"
-
+import { toast } from "react-toastify";
+import { history } from '../../../history';
 
 export const createAdmin = (data) => {
   return async (dispatch) => {
     dispatch({ type: 'CREATE_ADMIN'});
     try {
       const response = await axios.post("/api/admin/signup", data);
-
       dispatch({ type: "CREATE_ADMIN_SUCCESS", payload: response.data });
       toast.success("Admin created successfully!");
       dispatch(getAdminsList());
+      history.push('/admin');
     } catch (error) {
       dispatch({ type: "CREATE_ADMIN_FAILURE", payload: error.response.data });
     }
@@ -35,10 +35,10 @@ export const updateAdmin = (data) => {
     dispatch({ type: 'UPDATE_ADMIN'});
     try {
       const response = await axios.post("/api/admin/update-profile", data);
-
       dispatch({ type: "UPDATE_ADMIN_SUCCESS", payload: response.data });
       dispatch(getAdminsList());
       toast.success("Admin updated successfully!");
+      history.push('/admin');
     } catch (error) {
       dispatch({ type: "UPDATE_ADMIN_FAILURE", payload: error.response.data });
     }
@@ -50,10 +50,10 @@ export const deleteAdmin = (adminId) => {
     dispatch({ type: 'DELETE_ADMIN'});
     try {
       const response = await axios.post("/api/admin/delete", { adminId });
-
       dispatch({ type: "DELETE_ADMIN_SUCCESS", payload: response.data });
       dispatch(getAdminsList());
       toast.success("Admin deleted successfully!");
+      history.push('/admin');
     } catch (error) {
       dispatch({ type: "DELETE_ADMIN_FAILURE", payload: error.response.data });
     }
