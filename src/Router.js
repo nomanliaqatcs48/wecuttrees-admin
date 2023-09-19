@@ -260,8 +260,8 @@ class AppRouter extends React.Component {
           <AppRoute path="/user-create" component={UserCreate} privateRoute/>
           <AppRoute path="/user-edit" component={UserEdit} privateRoute />
           <AppRoute path="/admin/deals" component={Deals} privateRoute/>
-          <AppRoute path="/deals-create" component={DealCreate} privateRoute />
-          <AppRoute path="/deal-edit" component={DealEdit} privateRoute />
+          <AppRoute path="/deal-create" component={DealCreate} privateRoute />
+          <AppRoute path="/deal-edit/:id" component={DealCreate} privateRoute />
           <AppRoute path="/admin/reports" component={Reports} privateRoute />
           <AppRoute path="/report-create" component={ReportCreate} privateRoute />
           <AppRoute path="/report-edit" component={ReportEdit} privateRoute />

@@ -14,6 +14,7 @@ import PaginationIconsAndText from "../../../components/reactstrap/pagination/Pa
 import { Edit, Trash } from "react-feather";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminsList, deleteAdmin } from '../../../redux/actions/admin';
+import moment from "moment";
 import axios from "axios";
 
 const Admins = () => {
@@ -68,7 +69,7 @@ const Admins = () => {
                 {/* <th>ADMIN</th> */}
                 <th>ADMIN NAME</th>
                 <th>EMAIL ADDRESS</th>
-                <th>REGISTRATION DATE</th>
+                <th>CREATED DATE</th>
                 {/* <th>STATUS</th> */}
                 <th>ACTIONS</th>
               </tr>
@@ -80,13 +81,13 @@ const Admins = () => {
                 
                 <td>{admin.displayName}</td>
                 <td>{admin.email}</td>
-                <td>{admin.createdAt}</td>
+                <td>{moment(admin.createdAt).format("YYYY-MM-DD")}</td>
                 {/* <td>
                   <Badge color="light-success">VARIFIED</Badge>
                 </td> */}
                 <td>
                   <Link to={`admin-edit/${admin._id}`}>
-                    <Edit size={20} />
+                    <Edit size={20}  style={{cursor: 'pointer'}}  />
                   </Link>
                   <Trash size={20} style={{cursor: 'pointer'}} color="#ff0000" onClick={()=> showDeleteAlert(admin._id)} />
                 </td>
@@ -95,7 +96,7 @@ const Admins = () => {
             </tbody>
            
           </Table>
-          <PaginationIconsAndText/>
+          {/* <PaginationIconsAndText/> */}
         </Card>
         <SweetAlert
           title="Are you sure?"

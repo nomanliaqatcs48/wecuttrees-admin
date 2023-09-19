@@ -11,6 +11,7 @@ import page from "./page/";
 import blog from "./blog/";
 import user from "./user";
 import admin from "./admin";
+import deal from "./deal";
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   page: page,
   blog: blog,
   user,
-  admin
+  admin,
+  deal
 });
 
 export default rootReducer;
