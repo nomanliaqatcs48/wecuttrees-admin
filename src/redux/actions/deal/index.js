@@ -34,7 +34,7 @@ export const updateDeal = (data) => {
   return async (dispatch) => {
     dispatch({ type: 'UPDATE_DEAL'});
     try {
-      const response = await axios.post("/api/deals/update", data);
+      const response = await axios.put("/api/deals/update", data);
       dispatch({ type: "UPDATE_DEAL_SUCCESS", payload: response.data });
       dispatch(getDealsList());
       toast.success("Deal updated successfully!");
@@ -49,7 +49,7 @@ export const deleteDeal = (dealId) => {
   return async (dispatch) => {
     dispatch({ type: 'DELETE_DEAL'});
     try {
-      const response = await axios.post("/api/deals/delete", { dealId });
+      const response = await axios.delete(`/api/deals/delete/${dealId}`);
       dispatch({ type: "DELETE_DEAL_SUCCESS", payload: response.data });
       dispatch(getDealsList());
       toast.success("Deal deleted successfully!");

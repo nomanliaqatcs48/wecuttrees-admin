@@ -21,9 +21,7 @@ class UserEdit extends React.Component {
     const { user } = props.location.state;
     this.state = {
       user: {
-        id: user._id,
-        email: user.email,
-        password: user.password,
+        userId: user._id,
         displayName: user.displayName || "", // Initialize with empty string
         status: user.status, // Set the default value
       },

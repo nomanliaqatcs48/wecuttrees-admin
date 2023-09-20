@@ -77,9 +77,8 @@ const AdminCreate = () => {
       e.preventDefault();
       if(adminId){
        const data= {
-          id: adminId,
-          displayName: admin.displayName,
-          email: admin.email
+        adminId: adminId,
+        displayName: admin.displayName,
           
           // status: "un-verified"
       }
@@ -109,6 +108,7 @@ const AdminCreate = () => {
                     <Input type="text" name="displayName" id="displayName" value={admin.displayName} onChange={handleChange} placeholder="Username" />
                   </FormGroup>
                 </Col>
+                {!adminId && (
                 <Col md="6" sm="12">
                   <FormGroup>
                     <Label for="username">Email Address</Label>
@@ -122,6 +122,7 @@ const AdminCreate = () => {
                     />
                   </FormGroup>
                 </Col>
+                )}
                 {!adminId && (
                 <Col md="6" sm="12">
                   <FormGroup>

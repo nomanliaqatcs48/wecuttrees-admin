@@ -38,7 +38,7 @@ export const deleteUser = (userId) => {
   return async (dispatch) => {
     try {
       // Send a DELETE request to your user deletion API endpoint
-      await axios.post(`/api/users/delete`, {userId: userId.toString()}); // Adjust the API endpoint as needed
+      await axios.delete(`/api/users/delete/${userId}`); // Adjust the API endpoint as needed
       // If user deletion is successful, dispatch a success action
       dispatch({ type: 'DELETE_USER_SUCCESS', payload: userId });
       toast.success("User deleted successfully!");
@@ -57,7 +57,7 @@ export const editUser = (updatedUserData) => {
   return async (dispatch) => {
     try {
       // Send a PUT or PATCH request to your user update API endpoint
-      const response = await axios.post(`/api/users/update-profile`, updatedUserData); // Adjust the API endpoint as needed
+      const response = await axios.put(`/api/users/update-profile`, updatedUserData); // Adjust the API endpoint as needed
       // If user update is successful, dispatch a success action
       dispatch({ type: 'EDIT_USER_SUCCESS', payload: response.data });
       toast.success("User updated successfully!");

@@ -45,9 +45,9 @@ const Deals = () => {
         <Card>
           <CardHeader>
             <CardTitle>Deals</CardTitle>
-            <Link className="addBtn" to="/deal-create">
+            {/* <Link className="addBtn" to="/deal-create">
                 Add
-            </Link>
+            </Link> */}
           </CardHeader>
           
           <Table

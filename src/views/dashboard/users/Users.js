@@ -122,7 +122,6 @@ class DispatchedOrders extends React.Component {
            </tbody>
            
           </Table>
-          <PaginationIconsAndText/>
         </Card>
         <SweetAlert
           title="Are you sure?"

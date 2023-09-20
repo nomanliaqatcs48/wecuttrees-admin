@@ -80,8 +80,10 @@ const DealCreate = () => {
     if (dealId) {
       const data = {
         dealId,
-        coinName: dealData.coinName,
-
+        dealName: dealData.coinName,
+        stopLossPrice: dealData.stopLossPrice,
+        maxPrice: dealData.targetPrice,
+        expirationDate: dealData.dealEndTime,
         // status: "un-verified"
       };
       dispatch(updateDeal(data));

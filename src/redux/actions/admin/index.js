@@ -34,7 +34,7 @@ export const updateAdmin = (data) => {
   return async (dispatch) => {
     dispatch({ type: 'UPDATE_ADMIN'});
     try {
-      const response = await axios.post("/api/admin/update-profile", data);
+      const response = await axios.put("/api/admin/update-profile", data);
       dispatch({ type: "UPDATE_ADMIN_SUCCESS", payload: response.data });
       dispatch(getAdminsList());
       toast.success("Admin updated successfully!");
@@ -49,7 +49,7 @@ export const deleteAdmin = (adminId) => {
   return async (dispatch) => {
     dispatch({ type: 'DELETE_ADMIN'});
     try {
-      const response = await axios.post("/api/admin/delete", { adminId });
+      const response = await axios.delete(`/api/admin/delete/${adminId}`);
       dispatch({ type: "DELETE_ADMIN_SUCCESS", payload: response.data });
       dispatch(getAdminsList());
       toast.success("Admin deleted successfully!");
