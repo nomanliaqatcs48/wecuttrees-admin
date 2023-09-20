@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from '../../../redux/actions/user';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+} from "reactstrap";
 
 class UserCreate extends Component {
   constructor(props) {
@@ -26,7 +31,11 @@ class UserCreate extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <Card>
+      <CardHeader>
+        <CardTitle>Add User</CardTitle>
+      </CardHeader>
+      <form className='p-2' onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-md-6 col-sm-12">
             <div className="form-group">
@@ -91,6 +100,8 @@ class UserCreate extends Component {
           </button>
         </div>
       </form>
+    </Card>
+    
     );
   }
 }

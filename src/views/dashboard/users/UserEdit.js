@@ -1,5 +1,4 @@
 import React from "react";
-import { useStore } from "react-redux";
 import {
   Row,
   Col,
@@ -15,7 +14,6 @@ import {
 
 import { editUser } from '../../../redux/actions/user';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 class UserEdit extends React.Component {
   constructor(props) {
