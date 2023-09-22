@@ -229,7 +229,8 @@ class NavbarUser extends React.PureComponent {
         </div>
       )
     })
-  console.log(renderCartItems)
+    const userData =JSON.parse(localStorage.getItem(process.env.REACT_APP_USER_DATA))
+    const userName = userData.email
     return (
       <ul className="nav navbar-nav navbar-nav-user float-right">
         {/* <IntlContext.Consumer>
@@ -652,7 +653,7 @@ class NavbarUser extends React.PureComponent {
           <DropdownToggle tag="a" className="nav-link dropdown-user-link">
             <div className="user-nav d-sm-flex d-none">
               <span className="user-name text-bold-600">
-                {this.props.userName}
+                {userName.split('@')[0]}
               </span>
               <span className="user-status">Available</span>
             </div>
