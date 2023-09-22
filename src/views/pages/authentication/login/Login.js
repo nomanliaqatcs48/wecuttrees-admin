@@ -22,11 +22,15 @@ import {history} from "../../../../history";
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    const userData = JSON.parse(localStorage.getItem(process.env.REACT_APP_USER_DATA))
-    if (userData?.email && userData?.accessToken) {
-      history.push('/dashboard')
-    }
-  }
+
+  // componentDidMount(){
+    // const userData = JSON.parse(localStorage.getItem(process.env.REACT_APP_USER_DATA))
+    // if (userData?.email && userData?.accessToken) {
+    //   debugger
+    //   history.push('/dashboard')
+    // }
+  // }
+}
 
   // state = {
   //   activeTab: "1"

@@ -70,6 +70,7 @@ const UserDropdown = props => {
             const provider = props.loggedInWith
             if (provider !== null) {
               if (provider === "jwt") {
+                localStorage.removeItem(process.env.REACT_APP_USER_DATA);
                 return props.logoutWithJWT()
               }
               if (provider === "firebase") {
@@ -230,7 +231,7 @@ class NavbarUser extends React.PureComponent {
       )
     })
     const userData =JSON.parse(localStorage.getItem(process.env.REACT_APP_USER_DATA))
-    const userName = userData.email
+    const userName = userData?.name || ''
     return (
       <ul className="nav navbar-nav navbar-nav-user float-right">
         {/* <IntlContext.Consumer>

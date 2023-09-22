@@ -25,7 +25,8 @@ const LoginJWT = () => {
   );
 
   useEffect(() => {
-    if (loginData?.statusCode === 200) {
+    const userData = JSON.parse(localStorage.getItem(process.env.REACT_APP_USER_DATA))
+    if (userData?.email && userData?.accessToken) {
       history.push("/dashboard");
     }
   }, [loginData]);

@@ -226,6 +226,7 @@ export const changeRole = role => {
 const setLocalData = (dataObj, response) => {
   const data = {
     email: dataObj.email,
+    name: response?.admin?.displayName || '',
     accessToken: response.token,
     role: 'admin'
   }
@@ -240,7 +241,8 @@ export const loginWithJWT = (dataObj) => async (dispatch) => {
   const headers = {'Accept': 'application/json'}
   try {
     const {data, status} = await axios.post(`/api/admin/login`, dataObj, {headers: headers});
-    setLocalData(dataObj, data)
+    setLocalData(dataObj, data);
+    history.push('/dashboard')
     dispatch({type: LOGIN.SUCCESS, payload: data, status});
   } catch (error) {
     dispatch({type: LOGIN.FAIL, payload: error});

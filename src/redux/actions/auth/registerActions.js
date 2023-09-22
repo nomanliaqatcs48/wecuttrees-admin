@@ -2,6 +2,7 @@
 // import "firebase/auth"
 // import "firebase/database"
 import Axios from "axios"
+import { history } from "../../../history"
 import {REGISTRATION} from "../../constant/auth/registerConstants";
 // import { config } from "../../../authServices/firebase/firebaseConfig"
 
@@ -94,6 +95,7 @@ export const signupWithJWT = (dataObj) => async (dispatch) => {
   try {
     const {data, status} = await Axios.post(`/api/admin/signup`, dataObj, {headers: headers});
     setLocalData(dataObj, data)
+    history.push('/login')
     dispatch({type: REGISTRATION.SUCCESS, payload: data, status});
   } catch (error) {
     dispatch({type: REGISTRATION.FAIL, payload: error.message});
