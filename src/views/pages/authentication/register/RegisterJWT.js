@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
   Form,
   FormGroup,
@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { signupWithJWT } from "../../../../redux/actions/auth/registerActions";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { history } from "../../../../history";
+
 
 const RegisterJWT = () => {
   const dispatch = useDispatch();
@@ -32,6 +34,7 @@ const RegisterJWT = () => {
   //     .catch((err) => {
   //       console.log(err)
   //     })
+      
   // }
 
   // useEffect(() => {
@@ -165,7 +168,7 @@ const RegisterJWT = () => {
               <div className="d-flex justify-content-between mb-3">
                 <Button
                   color="primary"
-                  className="w-100"
+                  className="base-btn"
                   type="submit"
                   disabled={registrationLoading || ""}
                 >
@@ -178,7 +181,7 @@ const RegisterJWT = () => {
                     <span className="ml-50">Register</span>
                   )}
                 </Button>
-                {/* <Button.Ripple
+                <Button
                   color="primary"
                   className="base-btn"
                   outline
@@ -188,7 +191,7 @@ const RegisterJWT = () => {
                   disabled={registrationLoading || ""}
                 >
                   Login
-                </Button.Ripple> */}
+                </Button>
               </div>
             </Form>
           </CardBody>
